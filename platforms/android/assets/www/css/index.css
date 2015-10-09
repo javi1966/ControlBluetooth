@@ -1,0 +1,150 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+
+@font-face {
+    font-family: 'bpdotsregular';
+    src: url('../fonts/bpdots-webfont.eot');
+    src: url('../fonts/bpdots-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/bpdots-webfont.woff2') format('woff2'),
+        url('../fonts/bpdots-webfont.woff') format('woff'),
+        url('../fonts/bpdots-webfont.ttf') format('truetype'),
+        url('../fonts/bpdots-webfont.svg#bpdotsregular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+.ui-header h1{
+
+    color:yellow;
+    font-family: cursive;
+    letter-spacing: 3px; 
+}
+
+#content {
+
+    margin : 0;
+    padding: 0;
+    position : absolute !important; 
+    top : 40px !important;  
+    right : 0; 
+    bottom : 40px !important;  
+    left : 0 !important; 
+    color: black !important;
+    display: inline !important; 
+}
+
+
+
+
+#contenido {
+
+    // padding: 0;
+    // position : absolute !important; 
+    // top : 40px !important;  
+    //right : 0; 
+    // bottom : 40px !important;  
+    //  left : 0 !important; 
+    background-color: black;
+    //width: auto !important;
+    // height: 100% !important;
+
+
+
+}
+
+
+
+#visual {
+
+
+    padding: 0 !important;
+    margin: 0 !important;
+    float : left;
+    border-right:4px dotted white;
+    background-image: url("../img/fondo_negro.jpg") !important; 
+    width: 74% !important;
+    height: 100% !important;
+
+
+}
+
+
+#connectionScreen {
+
+
+    float:right;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 25% !important;
+    background:linear-gradient( #99ff33,#CCFFCC )  !important;
+    background:-webkit-linear-gradient( #99ff33,#CCFFCC )  !important;
+    height: 100% !important;
+
+
+}
+
+#connectionScreen button {
+
+    //margin:10% 30% 5% 30%;
+    margin-left: 5% !important;
+}
+
+#connectionScreen p {
+
+    margin: 0 ;
+    border-bottom: 3px dotted black ;
+    color:blue;
+    font-family: cursive;
+    font-weight:bold;
+    letter-spacing: 3px; 
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#deviceList button {
+    display: block;
+    color : yellow;
+    text-shadow: 0 /*{b-bup-shadow-x}*/ 1px /*{b-bup-shadow-y}*/ 0 /*{b-bup-shadow-radius}*/ #194b7e /*{b-bup-shadow-color}*/;
+    //position: center;
+    text-align: center;
+    border-radius: 1em;
+    padding: 0.8em;
+    margin: .5em .5em .5em .5em;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+    text-decoration: none;
+    border: 1px solid #044062;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background:linear-gradient( #5f9cc5,#396b9e )  !important;
+    background:-webkit-linear-gradient( #5f9cc5,#396b9e )  !important;
+    box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+}
+
+.disp_valor {
+    font-family:bpdotsregular; 
+    letter-spacing: 2px; 
+    text-align :center;
+    color:#99ff33;
+    font-size: 3.9em;
+    margin: 0;
+}
