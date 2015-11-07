@@ -44,8 +44,8 @@
                 <div id="visual">
 
                     
-                    <p class="disp_valor">220.00 V</p>
-                    <p class="disp_valor">0.00 A</p>
+                    <p class="disp_valor" id="Tension">0.00 V</p>
+                    <p class="disp_valor" id="Corriente">0.00 A</p>
 
                 </div>
 
@@ -62,8 +62,10 @@
                         <button id="descButton" data-theme='b'>Desconecta Nodos</button>
                     </div>
                     <div id="divDatos">
-                        <button id="sendButton" data-theme='b'>Enciende</button>
-                        <button id="recvButton" data-theme='b'>Recibo</button>
+                        <button id="sendTension" data-theme='b'>Tension</button> 
+                        <button id="sendCorriente" data-theme='b'>Corriente</button>
+                        <button id="recvBufTension" data-theme='b'>B.Tension</button>
+                        <button id="recvBufCorriente" data-theme='b'>B.Corriente</button>
                     </div>
                     <div id="messageDiv">
 

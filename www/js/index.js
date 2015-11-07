@@ -43,9 +43,10 @@ var app = {
         $(document).on('pageshow', '#main', this.onPageShow);
         deviceList.ontouchstart = app.connect;
         descButton.ontouchstart = app.disconnect;
-        sendButton.ontouchstart = app.enviaDatos;
-        recvButton.ontouchstart = app.recibeDatos;
-
+        sendTension.ontouchstart = app.mideTension;
+        sendCorriente.ontouchstart = app.mideCorriente;
+        recvBufTension.ontouchstart = app.recibeBufTension;
+        recvBufCorriente.ontouchstart = app.recibeBufCorr;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
@@ -58,8 +59,8 @@ var app = {
          
          var viewport_height = $(window).height()-header-footer-content;
          */
-       // var screen = $.mobile.getScreenHeight(),
-        var screen=        $(window).height(),
+        // var screen = $.mobile.getScreenHeight(),
+        var screen = $(window).height(),
                 header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
                 footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight(),
                 contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height(),
@@ -103,9 +104,9 @@ var app = {
         $("#deviceList").hide('slow');
         $("#divDatos").show('slow');
 
-        toast("Conectado a..." + this.deviceName);
-        app.setStatus("Conectado a..." + this.deviceName);
-        console.log("Conectado a..." + this.deviceName);
+        //  toast("Conectado a..." + this.deviceName);
+        //  app.setStatus("Conectado a..." + this.deviceName);
+        //  console.log("Conectado a..." + this.deviceName);
     },
     disconnect: function (event) {
         if (event) {
@@ -122,30 +123,92 @@ var app = {
         //toast("Desconectando...");
         //app.setStatus("Desconectando.");
     },
-    enviaDatos: function () {
+    mideTension: function () {
 
-        bluetoothSerial.write("B");
-        console.log("Envia dato B");
+
+
+        bluetoothSerial.write('t', function () {
+
+            setTimeout(function () {
+                /* bluetoothSerial.available(function (numBytes) {
+                 console.log("Hay " + numBytes + " bytes a leer.");
+                 });*/
+
+                bluetoothSerial.read(function (data) {
+
+                    if (data !== null)
+                        $("#Tension").html(data.substring(1, 4) + " V.");
+                    else
+                        $("#Tension").html("0.0 V.")
+                    console.log(data + " V");
+                });
+
+            }, 700);
+
+
+
+
+        });
+        console.log("mide tension");
+
 
     },
-    recibeDatos: function () {
+    mideCorriente: function () {
+        bluetoothSerial.write('C', function () {
 
+            setTimeout(function () {
+                /* bluetoothSerial.available(function (numBytes) {
+                 console.log("Hay " + numBytes + " bytes a leer.");
+                 });*/
+
+                bluetoothSerial.read(function (data) {
+
+                    if (data !== null)
+                        $("#Corriente").html(data.substring(1, 4) + " A.");
+                    else
+                        $("#Corriente").html("0.0 A.")
+                    console.log(data + " A");
+                });
+
+            }, 700);
+
+
+
+
+        });
+        console.log("mide corriente");
+
+
+    },
+    recibeBufTension: function () {
 
         bluetoothSerial.write("A", function () {
 
-            bluetoothSerial.available(function (numBytes) {
-                console.log("Hay " + numBytes + " bytes a leer.");
-            });
-
-            bluetoothSerial.read(function (data) {
-
-
-                console.log(data);
-            });
-
+            setTimeout(function () {
+                // bluetoothSerial.available(function (numBytes) {
+                //     console.log("Hay " + numBytes + " bytes a leer.");
+                // });
+                bluetoothSerial.read(function (data) {
+                    console.log(data);
+                });
+            }, 700);
         });
-        console.log("Envia dato A");
+        console.log("Recibe Buffer Tension");
 
+    },
+    recibeBufCorr: function () {
+        bluetoothSerial.write("B", function () {
+
+            setTimeout(function () {
+                // bluetoothSerial.available(function (numBytes) {
+                //     console.log("Hay " + numBytes + " bytes a leer.");
+                // });
+                bluetoothSerial.read(function (data) {
+                    console.log(data);
+                });
+            }, 700);
+        });
+        console.log("Recibe Buffer Corriente");
     },
     timeoutId: 0,
     setStatus: function (status) {
