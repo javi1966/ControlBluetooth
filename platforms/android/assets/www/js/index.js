@@ -28,9 +28,13 @@ var toast = function (msg) {
 var app = {
     deviceName: ""
     ,
+    tension : "",
+    corriente : "",
+    
     // Application Constructor
     initialize: function () {
         this.bindEvents();
+
 
         console.log("log:initialize");
     },
@@ -80,52 +84,7 @@ var app = {
 
         console.log("onDeviceReady");
     },
-    list: function (event) {
-
-        app.setStatus("Looking for Bluetooth Devices...");
-
-        bluetoothSerial.list(app.ondevicelist, app.generateFailureFunction("List Failed"));
-        console.log("debug:list");
-    },
-    connect: function (e) {
-
-        this.deviceName = e.target.getAttribute('deviceId');
-
-        toast("Conectando a..." + this.deviceName);
-        app.setStatus("Conectando a..." + this.deviceName);
-
-        console.log("Conectando a..." + this.deviceName);
-        bluetoothSerial.connect(this.deviceName, app.onconnect, app.ondisconnect);
-    },
-    onconnect: function () {
-
-        $("#divDesc").show('slow');
-        $("#divConectar").hide('slow');
-        $("#deviceList").hide('slow');
-        $("#divDatos").show('slow');
-
-        //  toast("Conectado a..." + this.deviceName);
-        //  app.setStatus("Conectado a..." + this.deviceName);
-        //  console.log("Conectado a..." + this.deviceName);
-    },
-    disconnect: function (event) {
-        if (event) {
-            event.preventDefault();
-        }
-        toast("Desconectando...");
-        app.setStatus("Desconectando...");
-        bluetoothSerial.disconnect(app.ondisconnect);
-    },
-    ondisconnect: function () {
-        $("#divDesc").hide('slow');
-        $("#divConectar").show('slow');
-        $("#divDatos").hide('slow');
-        //toast("Desconectando...");
-        //app.setStatus("Desconectando.");
-    },
     mideTension: function () {
-
-
 
         bluetoothSerial.write('t', function () {
 
@@ -135,21 +94,18 @@ var app = {
                  });*/
 
                 bluetoothSerial.read(function (data) {
-
+                    app.tension=data; 
                     if (data !== null)
                         $("#Tension").html(data.substring(1, 4) + " V.");
                     else
                         $("#Tension").html("0.0 V.")
-                    console.log(data + " V");
+                   
                 });
 
-            }, 700);
-
-
-
+            }, 1000);
 
         });
-        console.log("mide tension");
+        console.log("mide tension: "+app.tension + " V");
 
 
     },
@@ -161,22 +117,19 @@ var app = {
                  console.log("Hay " + numBytes + " bytes a leer.");
                  });*/
 
-                bluetoothSerial.read(function (data) {
-
-                    if (data !== null)
-                        $("#Corriente").html(data.substring(1, 4) + " A.");
+                bluetoothSerial.read(function (dato) {
+                    app.corriente=dato;
+                    if (dato !== null)
+                        $("#Corriente").html(dato.substring(1, 4) + " A.");
                     else
                         $("#Corriente").html("0.0 A.")
-                    console.log(data + " A");
+                    
                 });
 
-            }, 700);
-
-
-
+            }, 1000);
 
         });
-        console.log("mide corriente");
+        console.log("mide corriente: "+app.corriente + " A");
 
 
     },
@@ -209,6 +162,55 @@ var app = {
             }, 700);
         });
         console.log("Recibe Buffer Corriente");
+    },
+    list: function (event) {
+
+        app.setStatus("Looking for Bluetooth Devices...");
+
+        bluetoothSerial.list(app.ondevicelist, app.generateFailureFunction("List Failed"));
+        console.log("debug:list");
+    },
+    connect: function (e) {
+
+        this.deviceName = e.target.getAttribute('deviceId');
+
+        toast("Conectando a..." + this.deviceName);
+        app.setStatus("Conectando a..." + this.deviceName);
+
+        console.log("Conectando a..." + this.deviceName);
+        bluetoothSerial.connect(this.deviceName, app.onconnect, app.ondisconnect);
+    },
+    onconnect: function () {
+
+        $("#divDesc").show('slow');
+        $("#divConectar").hide('slow');
+        $("#deviceList").hide('slow');
+        $("#divDatos").show('slow');
+        
+        setInterval( function () {
+           app.mideTension();
+          
+           app.mideCorriente();
+        },5000);
+
+        //  toast("Conectado a..." + this.deviceName);
+        //  app.setStatus("Conectado a..." + this.deviceName);
+        //  console.log("Conectado a..." + this.deviceName);
+    },
+    disconnect: function (event) {
+        if (event) {
+            event.preventDefault();
+        }
+        toast("Desconectando...");
+        app.setStatus("Desconectando...");
+        bluetoothSerial.disconnect(app.ondisconnect);
+    },
+    ondisconnect: function () {
+        $("#divDesc").hide('slow');
+        $("#divConectar").show('slow');
+        $("#divDatos").hide('slow');
+        //toast("Desconectando...");
+        //app.setStatus("Desconectando.");
     },
     timeoutId: 0,
     setStatus: function (status) {
@@ -286,4 +288,5 @@ var app = {
         console.log("debug:generateFailureFunction");
         return func;
     }
+
 };
