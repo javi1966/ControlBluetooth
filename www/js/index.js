@@ -178,10 +178,7 @@ var app = {
         console.log("onDeviceReady");
     },
     mideTension: function () {
-        
-        
-       
-
+     
         bluetoothSerial.write('t', function () {
 
             setTimeout(function () {
