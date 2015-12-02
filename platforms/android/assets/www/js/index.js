@@ -22,20 +22,161 @@ var toast = function (msg) {
             });
 };
 
+//*****************************************************
+/*
+function showGaugeVolt(valor) {
+	var gauge = new Gauge({
+		renderTo    : 'gaugeVolt',
+		width       : 250,
+		height      : 250,
+		glow        : true,
+		units       : 'Voltios',
+		title       : false,
+		minValue    : 0,
+		maxValue    : 240,
+                valueFormat  :{int : 3, dec : 0},
+		majorTicks  : ['0','20','40','60','80','100','120','140','160','180','200','220','240'],
+		minorTicks  : 2,
+		strokeTicks : false,
+		highlights  : [
+			{ from : 0,   to : 50, color : 'rgba(0,   255, 0, .15)' },
+			{ from : 50, to : 100, color : 'rgba(255, 255, 0, .15)' },
+			{ from : 100, to : 150, color : 'rgba(255, 30,  0, .25)' },
+			{ from : 150, to : 200, color : 'rgba(255, 0,  225, .25)' },
+			{ from : 200, to : 220, color : 'rgba(0, 0,  255, .25)' },
+                        { from : 220, to : 240, color : 'rgba(0, 0,  255, .25)' }
+		],
+		colors      : {
+			plate      : '#222',
+			majorTicks : '#f5f5f5',
+			minorTicks : '#ddd',
+			title      : '#fff',
+			units      : '#ccc',
+			numbers    : '#eee',
+			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
+		}
+	});
+       
+	gauge.draw();
+        gauge.setValue(valor);
+};
 
+//*********************************************************
+function showGaugeAmp(valor) {
+	var gauge = new Gauge({
+		renderTo    : 'gaugeAmp',
+		width       : 250,
+		height      : 250,
+		glow        : true,
+		units       : 'Amperios',
+		title       : false,
+		minValue    : 0,
+		maxValue    : 20,
+                valueFormat  :{int : 2, dec : 2},
+		majorTicks  : ['0','2','4','8','12','16','20'],
+		minorTicks  : 2,
+		strokeTicks : false,
+		highlights  : [
+			{ from : 0,   to : 2, color : 'rgba(0,   255, 0, .15)' },
+			{ from : 2, to : 4, color : 'rgba(255, 255, 0, .15)' },
+			{ from : 4, to : 8, color : 'rgba(255, 30,  0, .25)' },
+			{ from : 8, to : 12, color : 'rgba(255, 0,  225, .25)' },
+			{ from : 12, to : 16, color : 'rgba(0, 0,  255, .25)' },
+                        { from : 16, to : 20, color : 'rgba(0, 0,  255, .25)' }
+		],
+		colors      : {
+			plate      : '#222',
+			majorTicks : '#f5f5f5',
+			minorTicks : '#ddd',
+			title      : '#fff',
+			units      : '#ccc',
+			numbers    : '#eee',
+			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
+		}
+	});
+        
+	gauge.draw();
+        gauge.setValue(valor);
+};
+*/
+
+//*******************************************************
 
 
 var app = {
-    deviceName: ""
-    ,
-    tension : "",
-    corriente : "",
     
+      gaugeVolt : new Gauge({
+		renderTo    : 'gaugeVolt',
+		width       : 250,
+		height      : 250,
+		glow        : true,
+		units       : 'Voltios',
+		title       : false,
+		minValue    : 0,
+		maxValue    : 240,
+                valueFormat  :{int : 3, dec : 0},
+		majorTicks  : ['0','20','40','60','80','100','120','140','160','180','200','220','240'],
+		minorTicks  : 2,
+		strokeTicks : false,
+		highlights  : [
+			{ from : 0,   to : 50, color : 'rgba(0,   255, 0, .15)' },
+			{ from : 50, to : 100, color : 'rgba(255, 255, 0, .15)' },
+			{ from : 100, to : 150, color : 'rgba(255, 30,  0, .25)' },
+			{ from : 150, to : 200, color : 'rgba(255, 0,  225, .25)' },
+			{ from : 200, to : 220, color : 'rgba(0, 0,  255, .25)' },
+                        { from : 220, to : 240, color : 'rgba(0, 0,  255, .25)' }
+		],
+		colors      : {
+			plate      : '#222',
+			majorTicks : '#f5f5f5',
+			minorTicks : '#ddd',
+			title      : '#fff',
+			units      : '#ccc',
+			numbers    : '#eee',
+			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
+		}
+	}),
+        gaugeAmp : new Gauge({
+		renderTo    : 'gaugeAmp',
+		width       : 250,
+		height      : 250,
+		glow        : true,
+		units       : 'Amperios',
+		title       : false,
+		minValue    : 0,
+		maxValue    : 20,
+                valueFormat  :{int : 2, dec : 2},
+		majorTicks  : ['0','2','4','8','12','16','20'],
+		minorTicks  : 2,
+		strokeTicks : false,
+		highlights  : [
+			{ from : 0,   to : 2, color : 'rgba(0,   255, 0, .15)' },
+			{ from : 2, to : 4, color : 'rgba(255, 255, 0, .15)' },
+			{ from : 4, to : 8, color : 'rgba(255, 30,  0, .25)' },
+			{ from : 8, to : 12, color : 'rgba(255, 0,  225, .25)' },
+			{ from : 12, to : 16, color : 'rgba(0, 0,  255, .25)' },
+                        { from : 16, to : 20, color : 'rgba(0, 0,  255, .25)' }
+		],
+		colors      : {
+			plate      : '#222',
+			majorTicks : '#f5f5f5',
+			minorTicks : '#ddd',
+			title      : '#fff',
+			units      : '#ccc',
+			numbers    : '#eee',
+			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
+		}
+	}),
+ 
+    deviceName: "",
+    tension: "",
+    corriente: "",
+    toggleMedida: false,
+    toggleInterval: 0,
+    _DEBUG_: true,
     // Application Constructor
     initialize: function () {
         this.bindEvents();
-
-
         console.log("log:initialize");
     },
     // Bind Event Listeners
@@ -51,11 +192,13 @@ var app = {
         sendCorriente.ontouchstart = app.mideCorriente;
         recvBufTension.ontouchstart = app.recibeBufTension;
         recvBufCorriente.ontouchstart = app.recibeBufCorr;
+        sendVA.change = app.recibeVA;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
         $("#divDesc").hide();
         $("#divDatos").hide();
+       
         /*
          var header = $.mobile.activePage.find("div[data-role='header']:visible").height();
          var footer = $.mobile.activePage.find("div[data-role='footer']:visible").height();
@@ -71,7 +214,10 @@ var app = {
                 content = screen - header - footer - contentCurrent;
 
         $("#content").height = content;
-
+        
+        
+        app.showGaugeVolt(0);
+        app.showGaugeAmp(0);
         console.log("log:onPageShow");
     },
     // deviceready Event Handler
@@ -85,7 +231,7 @@ var app = {
         console.log("onDeviceReady");
     },
     mideTension: function () {
-
+     
         bluetoothSerial.write('t', function () {
 
             setTimeout(function () {
@@ -94,22 +240,25 @@ var app = {
                  });*/
 
                 bluetoothSerial.read(function (data) {
-                    app.tension=data; 
-                    if (data !== null)
-                        $("#Tension").html(data.substring(1, 4) + " V.");
+                    app.tension = data.substring(1, 4);
+                    if (app.tension){
+                        $("#Tension").html( + " V.");
+                         
+                     }     
                     else
                         $("#Tension").html("0.0 V.")
-                   
+
                 });
 
-            }, 1000);
+            }, 700);
 
         });
-        console.log("mide tension: "+app.tension + " V");
+        console.log("mide tension: " + app.tension + " V");
 
 
     },
     mideCorriente: function () {
+
         bluetoothSerial.write('C', function () {
 
             setTimeout(function () {
@@ -118,18 +267,18 @@ var app = {
                  });*/
 
                 bluetoothSerial.read(function (dato) {
-                    app.corriente=dato;
+                    app.corriente = dato;
                     if (dato !== null)
                         $("#Corriente").html(dato.substring(1, 4) + " A.");
                     else
                         $("#Corriente").html("0.0 A.")
-                    
+
                 });
 
-            }, 1000);
+            }, 700);
 
         });
-        console.log("mide corriente: "+app.corriente + " A");
+        console.log("mide corriente: " + app.corriente + " A");
 
 
     },
@@ -165,7 +314,7 @@ var app = {
     },
     list: function (event) {
 
-        app.setStatus("Looking for Bluetooth Devices...");
+       // app.setStatus("Looking for Bluetooth Devices...");
 
         bluetoothSerial.list(app.ondevicelist, app.generateFailureFunction("List Failed"));
         console.log("debug:list");
@@ -175,7 +324,7 @@ var app = {
         this.deviceName = e.target.getAttribute('deviceId');
 
         toast("Conectando a..." + this.deviceName);
-        app.setStatus("Conectando a..." + this.deviceName);
+       // app.setStatus("Conectando a..." + this.deviceName);
 
         console.log("Conectando a..." + this.deviceName);
         bluetoothSerial.connect(this.deviceName, app.onconnect, app.ondisconnect);
@@ -186,30 +335,25 @@ var app = {
         $("#divConectar").hide('slow');
         $("#deviceList").hide('slow');
         $("#divDatos").show('slow');
-        
-        setInterval( function () {
-           app.mideTension();
-          
-           app.mideCorriente();
-        },5000);
+
 
         //  toast("Conectado a..." + this.deviceName);
         //  app.setStatus("Conectado a..." + this.deviceName);
-        //  console.log("Conectado a..." + this.deviceName);
+          console.log("Conectado a..." );//+ this.deviceName);
     },
     disconnect: function (event) {
         if (event) {
             event.preventDefault();
         }
         toast("Desconectando...");
-        app.setStatus("Desconectando...");
+        //app.setStatus("Desconectando...");
         bluetoothSerial.disconnect(app.ondisconnect);
     },
     ondisconnect: function () {
         $("#divDesc").hide('slow');
         $("#divConectar").show('slow');
         $("#divDatos").hide('slow');
-        //toast("Desconectando...");
+        toast("Desconectado...");
         //app.setStatus("Desconectando.");
     },
     timeoutId: 0,
@@ -235,7 +379,7 @@ var app = {
         // remove existing devices
         $("#deviceList").show();
         $('#deviceList').html("");
-        app.setStatus("");
+       // app.setStatus("");
 
         devices.forEach(function (device) {
 
@@ -264,13 +408,15 @@ var app = {
         if (devices.length === 0) {
 
             if (cordova.platformId === "ios") { // BLE
-                app.setStatus("No Bluetooth Peripherals Discovered.");
+                toast("No Bluetooth Peripherals Discovered.");
+                //app.setStatus("No Bluetooth Peripherals Discovered.");
             } else { // Android
-                app.setStatus("Please Pair a Bluetooth Device.");
+                toast("Please Pair a Bluetooth Device.");
+                //app.setStatus("Please Pair a Bluetooth Device.");
             }
 
         } else {
-            app.setStatus("Found " + devices.length + " device" + (devices.length === 1 ? "." : "s."));
+            //app.setStatus("Found " + devices.length + " device" + (devices.length === 1 ? "." : "s."));
             toast("Found " + devices.length + " device" + (devices.length === 1 ? "." : "s."));
         }
 
@@ -282,11 +428,79 @@ var app = {
             if (reason) {
                 details += ": " + JSON.stringify(reason);
             }
-            app.setStatus(message + details);
+           // app.setStatus(message + details);
             toast(message + details);
         };
         console.log("debug:generateFailureFunction");
         return func;
+    },
+    mideVA: function () {
+        var arrTmp = [];
+
+        bluetoothSerial.write("P", function () {
+
+            setTimeout(function () {
+                // bluetoothSerial.available(function (numBytes) {
+                //     console.log("Hay " + numBytes + " bytes a leer.");
+                // });
+                bluetoothSerial.read(function (data) {
+
+                    if (data !== null) {
+                        arrTmp = data.split('#');
+                        app.tension = arrTmp[0].substring(1, 4);
+                        app.corriente = arrTmp[1].substring(0, 4);
+                   
+                        if (app.tension){
+                            //$("#Tension").html(app.tension + " V.");
+                            app.showGaugeVolt( app.tension);
+                            $("#Tension").html(app.tension + " V.");
+                        }
+                        else
+                            $("#Tension").html("0.0 V.");
+                    
+                        if (app.corriente){
+                           // $("#Corriente").html(app.corriente + " A.");
+                            app.showGaugeAmp( app.corriente);
+                            $("#Corriente").html(app.corriente+" A.")
+                        }
+                        else
+                            $("#Corriente").html("0.0 A.");
+                    }
+                    if (app._DEBUG_) {
+                        console.log(data);
+                        console.log(app.tension);
+                        console.log(app.corriente);
+                    }
+                });
+            }, 700);
+        });
+        console.log("Recibe Buffer Volt-Amp");
+    },
+    recibeVA: function () {
+
+        app.toggleMedida ^= true;
+
+        if (app.toggleMedida) {
+            app.toggleInterval = setInterval(function () {
+                app.mideVA();
+            }, 5000);
+            console.log("debug:toggleMedida: " + app.toggleInterval);
+        } else {
+            clearInterval(app.toggleInterval);
+            console.log("debug:toggleMedida else: " + app.toggleInterval);
+        }
+        console.log("debug:toggle: " + app.toggleMedida);
+    },
+    showGaugeVolt: function (valor){
+        
+        app.gaugeVolt.draw();
+        this.gaugeVolt.setValue(valor);
+        
+    },
+    showGaugeAmp: function (valor){
+        
+        app.gaugeAmp.draw();
+        this.gaugeAmp.setValue(valor);
     }
 
 };

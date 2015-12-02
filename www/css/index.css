@@ -74,7 +74,7 @@
 
 #visual {
 
-
+   
     padding: 0 !important;
     margin: 0 !important;
     float : left;
@@ -82,7 +82,7 @@
     background-image: url("../img/fondo_negro.jpg") !important; 
     width: 74% !important;
     height: 100% !important;
-
+    
 
 }
 

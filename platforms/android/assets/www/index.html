@@ -24,6 +24,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
+
         <script src="js/jquery-2.1.4.min.js"></script>
         <script  src="js/jquery.mobile-1.3.2.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -38,22 +39,27 @@
             </div><!-- /header -->
 
             <div data-role="content" id="content">
-                
-             
+
+
 
                 <div id="visual">
 
-                    
+
+                    <canvas id="gaugeVolt" style="top:100;left:0" ></canvas>
+
+                    <canvas id="gaugeAmp"  ></canvas>
+
                     <p class="disp_valor" id="Tension">0.00 V</p>
-                    <p class="disp_valor" id="Corriente">0.00 A</p>
+                    <p class="disp_valor" id="Corriente">0.00 A</p> -->
 
                 </div>
 
 
+
                 <div id="connectionScreen" >
-                    <p>  Conexion</p>
+                    <p>Conexion</p>
                     <div id="deviceList" >
-                        
+
                     </div>
                     <div id="divConectar">
                         <button id="refreshButton" data-theme='b'>Busca Nodos</button>
@@ -62,6 +68,11 @@
                         <button id="descButton" data-theme='b'>Desconecta Nodos</button>
                     </div>
                     <div id="divDatos">
+                        <!--<button id="sendVA" data-theme='b'>Medida</button> -->
+                        <select name="flip-min" id="sendVA" data-role="slider" data-theme='b'>
+                            <option value="off">No Mide</option>
+                            <option value="on">Mide</option>
+                        </select>
                         <button id="sendTension" data-theme='b'>Tension</button> 
                         <button id="sendCorriente" data-theme='b'>Corriente</button>
                         <button id="recvBufTension" data-theme='b'>B.Tension</button>
@@ -71,7 +82,7 @@
 
                     </div>
                 </div>  <!-- Connection Screen -->    
-             
+
             </div><!-- /content -->
 
             <div data-role="footer" data-position="fixed" data-theme='b'>
@@ -81,6 +92,7 @@
 
 
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/gauge.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
