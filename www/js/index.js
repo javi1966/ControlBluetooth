@@ -23,151 +23,71 @@ var toast = function (msg) {
 };
 
 //*****************************************************
-/*
-function showGaugeVolt(valor) {
-	var gauge = new Gauge({
-		renderTo    : 'gaugeVolt',
-		width       : 250,
-		height      : 250,
-		glow        : true,
-		units       : 'Voltios',
-		title       : false,
-		minValue    : 0,
-		maxValue    : 240,
-                valueFormat  :{int : 3, dec : 0},
-		majorTicks  : ['0','20','40','60','80','100','120','140','160','180','200','220','240'],
-		minorTicks  : 2,
-		strokeTicks : false,
-		highlights  : [
-			{ from : 0,   to : 50, color : 'rgba(0,   255, 0, .15)' },
-			{ from : 50, to : 100, color : 'rgba(255, 255, 0, .15)' },
-			{ from : 100, to : 150, color : 'rgba(255, 30,  0, .25)' },
-			{ from : 150, to : 200, color : 'rgba(255, 0,  225, .25)' },
-			{ from : 200, to : 220, color : 'rgba(0, 0,  255, .25)' },
-                        { from : 220, to : 240, color : 'rgba(0, 0,  255, .25)' }
-		],
-		colors      : {
-			plate      : '#222',
-			majorTicks : '#f5f5f5',
-			minorTicks : '#ddd',
-			title      : '#fff',
-			units      : '#ccc',
-			numbers    : '#eee',
-			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
-		}
-	});
-       
-	gauge.draw();
-        gauge.setValue(valor);
-};
-
-//*********************************************************
-function showGaugeAmp(valor) {
-	var gauge = new Gauge({
-		renderTo    : 'gaugeAmp',
-		width       : 250,
-		height      : 250,
-		glow        : true,
-		units       : 'Amperios',
-		title       : false,
-		minValue    : 0,
-		maxValue    : 20,
-                valueFormat  :{int : 2, dec : 2},
-		majorTicks  : ['0','2','4','8','12','16','20'],
-		minorTicks  : 2,
-		strokeTicks : false,
-		highlights  : [
-			{ from : 0,   to : 2, color : 'rgba(0,   255, 0, .15)' },
-			{ from : 2, to : 4, color : 'rgba(255, 255, 0, .15)' },
-			{ from : 4, to : 8, color : 'rgba(255, 30,  0, .25)' },
-			{ from : 8, to : 12, color : 'rgba(255, 0,  225, .25)' },
-			{ from : 12, to : 16, color : 'rgba(0, 0,  255, .25)' },
-                        { from : 16, to : 20, color : 'rgba(0, 0,  255, .25)' }
-		],
-		colors      : {
-			plate      : '#222',
-			majorTicks : '#f5f5f5',
-			minorTicks : '#ddd',
-			title      : '#fff',
-			units      : '#ccc',
-			numbers    : '#eee',
-			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
-		}
-	});
-        
-	gauge.draw();
-        gauge.setValue(valor);
-};
-*/
-
-//*******************************************************
 
 
 var app = {
-    
-      gaugeVolt : new Gauge({
-		renderTo    : 'gaugeVolt',
-		width       : 250,
-		height      : 250,
-		glow        : true,
-		units       : 'Voltios',
-		title       : false,
-		minValue    : 0,
-		maxValue    : 240,
-                valueFormat  :{int : 3, dec : 0},
-		majorTicks  : ['0','20','40','60','80','100','120','140','160','180','200','220','240'],
-		minorTicks  : 2,
-		strokeTicks : false,
-		highlights  : [
-			{ from : 0,   to : 50, color : 'rgba(0,   255, 0, .15)' },
-			{ from : 50, to : 100, color : 'rgba(255, 255, 0, .15)' },
-			{ from : 100, to : 150, color : 'rgba(255, 30,  0, .25)' },
-			{ from : 150, to : 200, color : 'rgba(255, 0,  225, .25)' },
-			{ from : 200, to : 220, color : 'rgba(0, 0,  255, .25)' },
-                        { from : 220, to : 240, color : 'rgba(0, 0,  255, .25)' }
-		],
-		colors      : {
-			plate      : '#222',
-			majorTicks : '#f5f5f5',
-			minorTicks : '#ddd',
-			title      : '#fff',
-			units      : '#ccc',
-			numbers    : '#eee',
-			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
-		}
-	}),
-        gaugeAmp : new Gauge({
-		renderTo    : 'gaugeAmp',
-		width       : 250,
-		height      : 250,
-		glow        : true,
-		units       : 'Amperios',
-		title       : false,
-		minValue    : 0,
-		maxValue    : 20,
-                valueFormat  :{int : 2, dec : 2},
-		majorTicks  : ['0','2','4','8','12','16','20'],
-		minorTicks  : 2,
-		strokeTicks : false,
-		highlights  : [
-			{ from : 0,   to : 2, color : 'rgba(0,   255, 0, .15)' },
-			{ from : 2, to : 4, color : 'rgba(255, 255, 0, .15)' },
-			{ from : 4, to : 8, color : 'rgba(255, 30,  0, .25)' },
-			{ from : 8, to : 12, color : 'rgba(255, 0,  225, .25)' },
-			{ from : 12, to : 16, color : 'rgba(0, 0,  255, .25)' },
-                        { from : 16, to : 20, color : 'rgba(0, 0,  255, .25)' }
-		],
-		colors      : {
-			plate      : '#222',
-			majorTicks : '#f5f5f5',
-			minorTicks : '#ddd',
-			title      : '#fff',
-			units      : '#ccc',
-			numbers    : '#eee',
-			needle     : { start : 'rgba(240, 128, 128, 1)', end : 'rgba(255, 160, 122, .9)' }
-		}
-	}),
- 
+    gaugeVolt: new Gauge({
+        renderTo: 'gaugeVolt',
+        width: 250,
+        height: 250,
+        glow: true,
+        units: 'Voltios',
+        title: false,
+        minValue: 0,
+        maxValue: 240,
+        valueFormat: {int: 3, dec: 0},
+        majorTicks: ['0', '20', '40', '60', '80', '100', '120', '140', '160', '180', '200', '220', '240'],
+        minorTicks: 2,
+        strokeTicks: false,
+        highlights: [
+            {from: 0, to: 50, color: 'rgba(0,   255, 0, .15)'},
+            {from: 50, to: 100, color: 'rgba(255, 255, 0, .15)'},
+            {from: 100, to: 150, color: 'rgba(255, 30,  0, .25)'},
+            {from: 150, to: 200, color: 'rgba(255, 0,  225, .25)'},
+            {from: 200, to: 220, color: 'rgba(0, 0,  255, .25)'},
+            {from: 220, to: 240, color: 'rgba(0, 0,  255, .25)'}
+        ],
+        colors: {
+            plate: '#222',
+            majorTicks: '#f5f5f5',
+            minorTicks: '#ddd',
+            title: '#fff',
+            units: '#ccc',
+            numbers: '#eee',
+            needle: {start: 'rgba(240, 128, 128, 1)', end: 'rgba(255, 160, 122, .9)'}
+        }
+    }),
+    gaugeAmp: new Gauge({
+        renderTo: 'gaugeAmp',
+        width: 250,
+        height: 250,
+        glow: true,
+        units: 'Amperios',
+        title: false,
+        minValue: 0,
+        maxValue: 20,
+        valueFormat: {int: 2, dec: 2},
+        majorTicks: ['0', '2', '4', '8', '12', '16', '20'],
+        minorTicks: 2,
+        strokeTicks: false,
+        highlights: [
+            {from: 0, to: 2, color: 'rgba(0,   255, 0, .15)'},
+            {from: 2, to: 4, color: 'rgba(255, 255, 0, .15)'},
+            {from: 4, to: 8, color: 'rgba(255, 30,  0, .25)'},
+            {from: 8, to: 12, color: 'rgba(255, 0,  225, .25)'},
+            {from: 12, to: 16, color: 'rgba(0, 0,  255, .25)'},
+            {from: 16, to: 20, color: 'rgba(0, 0,  255, .25)'}
+        ],
+        colors: {
+            plate: '#222',
+            majorTicks: '#f5f5f5',
+            minorTicks: '#ddd',
+            title: '#fff',
+            units: '#ccc',
+            numbers: '#eee',
+            needle: {start: 'rgba(240, 128, 128, 1)', end: 'rgba(255, 160, 122, .9)'}
+        }
+    }),
     deviceName: "",
     tension: "",
     corriente: "",
@@ -196,16 +116,19 @@ var app = {
         console.log("log:bindEvents");
     },
     onPageShow: function () {
+        var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+        var deviceHeight= window.orientation == 90 ? window.screen.width : window.screen.height;
+        console.log("Orientacion:"+window.orientation);
+        console.log("PixelRatio: "+window.devicePixelRatio);
+        console.log("Width: "+deviceWidth/window.devicePixelRatio);
+        console.log("Heigth: "+deviceHeight/window.devicePixelRatio);
+        $("#debug").html(deviceHeight/window.devicePixelRatio+"x"+deviceWidth/window.devicePixelRatio);
+        
+        
         $("#divDesc").hide();
         $("#divDatos").hide();
-       
-        /*
-         var header = $.mobile.activePage.find("div[data-role='header']:visible").height();
-         var footer = $.mobile.activePage.find("div[data-role='footer']:visible").height();
-         var content = $.mobile.activePage.find("div[data-role='content']:visible:visible").height();
-         
-         var viewport_height = $(window).height()-header-footer-content;
-         */
+
+
         // var screen = $.mobile.getScreenHeight(),
         var screen = $(window).height(),
                 header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
@@ -214,8 +137,14 @@ var app = {
                 content = screen - header - footer - contentCurrent;
 
         $("#content").height = content;
-        
-        
+
+        if(deviceWidth <= 380){
+          this.gaugeVolt.updateConfig({width:50,height:50});
+          this.gaugeAmp.updateConfig({width:50,height:50});
+          $("#Tension").css( "font-size","1em");
+          $("#Corriente").css( "font-size","1em");
+          Console.log("device width < 380");
+         }  
         app.showGaugeVolt(0);
         app.showGaugeAmp(0);
         console.log("log:onPageShow");
@@ -231,7 +160,7 @@ var app = {
         console.log("onDeviceReady");
     },
     mideTension: function () {
-     
+
         bluetoothSerial.write('t', function () {
 
             setTimeout(function () {
@@ -241,11 +170,10 @@ var app = {
 
                 bluetoothSerial.read(function (data) {
                     app.tension = data.substring(1, 4);
-                    if (app.tension){
-                        $("#Tension").html( + " V.");
-                         
-                     }     
-                    else
+                    if (app.tension) {
+                        app.showGaugeVolt(app.tension);
+                        $("#Tension").html(app.tension + " V.");
+                    } else
                         $("#Tension").html("0.0 V.")
 
                 });
@@ -267,10 +195,11 @@ var app = {
                  });*/
 
                 bluetoothSerial.read(function (dato) {
-                    app.corriente = dato;
-                    if (dato !== null)
-                        $("#Corriente").html(dato.substring(1, 4) + " A.");
-                    else
+                    app.corriente =dato.substring(1, 4);
+                    if (app.corriente !== null) {
+                        app.showGaugeAmp(app.corriente);
+                        $("#Corriente").html( app.corriente + " A.");
+                    } else
                         $("#Corriente").html("0.0 A.")
 
                 });
@@ -314,7 +243,7 @@ var app = {
     },
     list: function (event) {
 
-       // app.setStatus("Looking for Bluetooth Devices...");
+        // app.setStatus("Looking for Bluetooth Devices...");
 
         bluetoothSerial.list(app.ondevicelist, app.generateFailureFunction("List Failed"));
         console.log("debug:list");
@@ -324,7 +253,7 @@ var app = {
         this.deviceName = e.target.getAttribute('deviceId');
 
         toast("Conectando a..." + this.deviceName);
-       // app.setStatus("Conectando a..." + this.deviceName);
+        // app.setStatus("Conectando a..." + this.deviceName);
 
         console.log("Conectando a..." + this.deviceName);
         bluetoothSerial.connect(this.deviceName, app.onconnect, app.ondisconnect);
@@ -339,7 +268,7 @@ var app = {
 
         //  toast("Conectado a..." + this.deviceName);
         //  app.setStatus("Conectado a..." + this.deviceName);
-          console.log("Conectado a..." );//+ this.deviceName);
+        console.log("Conectado a...");//+ this.deviceName);
     },
     disconnect: function (event) {
         if (event) {
@@ -379,7 +308,7 @@ var app = {
         // remove existing devices
         $("#deviceList").show();
         $('#deviceList').html("");
-       // app.setStatus("");
+        // app.setStatus("");
 
         devices.forEach(function (device) {
 
@@ -428,7 +357,7 @@ var app = {
             if (reason) {
                 details += ": " + JSON.stringify(reason);
             }
-           // app.setStatus(message + details);
+            // app.setStatus(message + details);
             toast(message + details);
         };
         console.log("debug:generateFailureFunction");
@@ -449,21 +378,19 @@ var app = {
                         arrTmp = data.split('#');
                         app.tension = arrTmp[0].substring(1, 4);
                         app.corriente = arrTmp[1].substring(0, 4);
-                   
-                        if (app.tension){
+
+                        if (app.tension !== null) {
                             //$("#Tension").html(app.tension + " V.");
-                            app.showGaugeVolt( app.tension);
+                            app.showGaugeVolt(app.tension);
                             $("#Tension").html(app.tension + " V.");
-                        }
-                        else
+                        } else
                             $("#Tension").html("0.0 V.");
-                    
-                        if (app.corriente){
-                           // $("#Corriente").html(app.corriente + " A.");
-                            app.showGaugeAmp( app.corriente);
-                            $("#Corriente").html(app.corriente+" A.")
-                        }
-                        else
+
+                        if (app.corriente) {
+                            // $("#Corriente").html(app.corriente + " A.");
+                            app.showGaugeAmp(app.corriente);
+                            $("#Corriente").html(app.corriente + " A.")
+                        } else
                             $("#Corriente").html("0.0 A.");
                     }
                     if (app._DEBUG_) {
@@ -491,14 +418,14 @@ var app = {
         }
         console.log("debug:toggle: " + app.toggleMedida);
     },
-    showGaugeVolt: function (valor){
-        
+    showGaugeVolt: function (valor) {
+
         app.gaugeVolt.draw();
         this.gaugeVolt.setValue(valor);
-        
+
     },
-    showGaugeAmp: function (valor){
-        
+    showGaugeAmp: function (valor) {
+
         app.gaugeAmp.draw();
         this.gaugeAmp.setValue(valor);
     }

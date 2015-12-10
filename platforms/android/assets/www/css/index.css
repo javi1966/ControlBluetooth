@@ -74,7 +74,7 @@
 
 #visual {
 
-   
+    
     padding: 0 !important;
     margin: 0 !important;
     float : left;
@@ -84,6 +84,24 @@
     height: 100% !important;
     
 
+}
+
+#gaugeVolt {
+    
+    float:right;
+}
+
+#gaugeAmp {
+    
+    float:left;
+}
+#Tension{
+    
+    float:right;
+}
+#Corriente{
+    float:left;
+    margin-left: 0.5em;
 }
 
 
@@ -119,6 +137,8 @@
     font-size: 1.2em;
 }
 
+
+
 #deviceList button {
     display: block;
     color : yellow;
@@ -141,6 +161,7 @@
 }
 
 .disp_valor {
+    float:bottom;
     font-family:bpdotsregular; 
     letter-spacing: 2px; 
     text-align :center;
@@ -148,3 +169,25 @@
     font-size: 3.9em;
     margin: 0;
 }
+
+@media screen and (max-width : 380){
+    
+    .disp_valor{
+        
+        font-size: 1em;
+    }
+    
+    #gaugeVolt {
+        
+        width:50px;
+        height:50px;
+    }
+    
+     #gaugeAmp {
+        
+        width:50px;
+        height:50px;
+    }
+    
+}
+
