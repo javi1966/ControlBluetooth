@@ -88,11 +88,48 @@ var app = {
             needle: {start: 'rgba(240, 128, 128, 1)', end: 'rgba(255, 160, 122, .9)'}
         }
     }),
+    gaugeTemp: new Gauge({
+        renderTo: 'gaugeTemp',
+        width: 200,
+        height: 200,
+        glow: true,
+        units: 'ºC',
+        title: 'Temperatura',
+        minValue: 0,
+        maxValue: 50,
+        valueFormat: {int: 2 ,dec: 0},
+        majorTicks: ['0', '5', '10', '15','20','25','30','35','40','45','50'],
+        minorTicks: 2,
+        strokeTicks: false,
+        highlights: [
+            {from: 0, to: 5, color: 'rgba(0,   255, 0, .15)'},
+            {from: 5, to: 10, color: 'rgba(255, 255, 0, .15)'},
+            {from: 10, to: 15, color: 'rgba(255, 30,  0, .25)'},
+            {from: 15, to: 20, color: 'rgba(255, 30,  0, .25)'},
+            {from: 20, to: 25, color: 'rgba(255, 30,  0, .25)'},
+            {from: 25, to: 30, color: 'rgba(0,   255, 0, .15)'},
+            {from: 30, to: 35, color: 'rgba(255, 255, 0, .15)'},
+            {from: 40, to: 45, color: 'rgba(255, 30,  0, .25)'},
+            {from: 45, to: 50, color: 'rgba(255, 30,  0, .25)'}
+            
+        ],
+        colors: {
+            plate: '#222',
+            majorTicks: '#f5f5f5',
+            minorTicks: '#ddd',
+            title: '#fff',
+            units: '#ccc',
+            numbers: '#eee',
+            needle: {start: 'rgba(240, 128, 128, 1)', end: 'rgba(255, 160, 122, .9)'}
+        }
+    }),
     deviceName: "",
     tension: "",
     corriente: "",
+    temperatura:"",
     toggleMedida: false,
     toggleInterval: 0,
+    tglInterTemperatura:0,
     _DEBUG_: true,
     // Application Constructor
     initialize: function () {
@@ -146,6 +183,7 @@ var app = {
           Console.log("device width < 380");
          }  
         app.showGaugeVolt(0);
+        app.showGaugeTemp(0);
         app.showGaugeAmp(0);
         console.log("log:onPageShow");
     },
@@ -156,7 +194,8 @@ var app = {
     onDeviceReady: function () {
         // app.receivedEvent('deviceready');
         refreshButton.ontouchstart = app.list;
-
+        
+        
         console.log("onDeviceReady");
     },
     mideTension: function () {
@@ -265,7 +304,10 @@ var app = {
         $("#deviceList").hide('slow');
         $("#divDatos").show('slow');
 
-
+        
+        app.tglInterTemperatura=setInterval(function () {
+                app.mideTemperatura();
+            }, 60000);
         //  toast("Conectado a..." + this.deviceName);
         //  app.setStatus("Conectado a..." + this.deviceName);
         console.log("Conectado a...");//+ this.deviceName);
@@ -283,6 +325,7 @@ var app = {
         $("#divConectar").show('slow');
         $("#divDatos").hide('slow');
         toast("Desconectado...");
+        clearInterval(app.tglInterTemperatura);
         //app.setStatus("Desconectando.");
     },
     timeoutId: 0,
@@ -418,6 +461,19 @@ var app = {
         }
         console.log("debug:toggle: " + app.toggleMedida);
     },
+    mideTemperatura: function () {
+        
+        bluetoothSerial.write("K", function () {
+            bluetoothSerial.read(function (data) {
+               
+             app.temperatura= data.substring(1, 3); 
+             if(app.temperatura !== 0)
+                  app.showGaugeTemp(app.temperatura)   
+             console.log("Temperatura: "+app.temperatura)
+            }); 
+        });
+        
+    },
     showGaugeVolt: function (valor) {
 
         app.gaugeVolt.draw();
@@ -428,6 +484,11 @@ var app = {
 
         app.gaugeAmp.draw();
         this.gaugeAmp.setValue(valor);
+    },
+    showGaugeTemp: function (valor) {
+
+        app.gaugeTemp.draw();
+        this.gaugeTemp.setValue(valor);
     }
 
 };
