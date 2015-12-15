@@ -97,8 +97,8 @@ var app = {
         title: 'Temperatura',
         minValue: 0,
         maxValue: 50,
-        valueFormat: {int: 2 ,dec: 0},
-        majorTicks: ['0', '5', '10', '15','20','25','30','35','40','45','50'],
+        valueFormat: {int: 2, dec: 0},
+        majorTicks: ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50'],
         minorTicks: 2,
         strokeTicks: false,
         highlights: [
@@ -111,7 +111,7 @@ var app = {
             {from: 30, to: 35, color: 'rgba(255, 255, 0, .15)'},
             {from: 40, to: 45, color: 'rgba(255, 30,  0, .25)'},
             {from: 45, to: 50, color: 'rgba(255, 30,  0, .25)'}
-            
+
         ],
         colors: {
             plate: '#222',
@@ -126,10 +126,10 @@ var app = {
     deviceName: "",
     tension: "",
     corriente: "",
-    temperatura:"",
+    temperatura: "",
     toggleMedida: false,
     toggleInterval: 0,
-    tglInterTemperatura:0,
+    tglInterTemperatura: 0,
     _DEBUG_: true,
     // Application Constructor
     initialize: function () {
@@ -150,18 +150,19 @@ var app = {
         recvBufTension.ontouchstart = app.recibeBufTension;
         recvBufCorriente.ontouchstart = app.recibeBufCorr;
         sendVA.change = app.recibeVA;
+        recvTemperatura.ontouchstart = app.recibeTemperatura;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
         var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
-        var deviceHeight= window.orientation == 90 ? window.screen.width : window.screen.height;
-        console.log("Orientacion:"+window.orientation);
-        console.log("PixelRatio: "+window.devicePixelRatio);
-        console.log("Width: "+deviceWidth/window.devicePixelRatio);
-        console.log("Heigth: "+deviceHeight/window.devicePixelRatio);
-        $("#debug").html(deviceHeight/window.devicePixelRatio+"x"+deviceWidth/window.devicePixelRatio);
-        
-        
+        var deviceHeight = window.orientation == 90 ? window.screen.width : window.screen.height;
+        console.log("Orientacion:" + window.orientation);
+        console.log("PixelRatio: " + window.devicePixelRatio);
+        console.log("Width: " + deviceWidth / window.devicePixelRatio);
+        console.log("Heigth: " + deviceHeight / window.devicePixelRatio);
+        $("#debug").html(deviceHeight / window.devicePixelRatio + "x" + deviceWidth / window.devicePixelRatio);
+
+
         $("#divDesc").hide();
         $("#divDatos").hide();
 
@@ -175,16 +176,19 @@ var app = {
 
         $("#content").height = content;
 
-        if(deviceWidth <= 380){
-          this.gaugeVolt.updateConfig({width:50,height:50});
-          this.gaugeAmp.updateConfig({width:50,height:50});
-          $("#Tension").css( "font-size","1em");
-          $("#Corriente").css( "font-size","1em");
-          Console.log("device width < 380");
-         }  
-        app.showGaugeVolt(0);
-        app.showGaugeTemp(0);
-        app.showGaugeAmp(0);
+        if (deviceWidth <= 380) {
+            this.gaugeVolt.updateConfig({width: 50, height: 50});
+            this.gaugeAmp.updateConfig({width: 50, height: 50});
+            $("#Tension").css("font-size", "1em");
+            $("#Corriente").css("font-size", "1em");
+            Console.log("device width < 380");
+        }
+        // app.showGaugeVolt(0);
+        app.gaugeVolt.draw();
+        app.gaugeTemp.draw();
+        app.gaugeAmp.draw();
+        //  app.showGaugeTemp(0);
+        // app.showGaugeAmp(0);
         console.log("log:onPageShow");
     },
     // deviceready Event Handler
@@ -194,8 +198,8 @@ var app = {
     onDeviceReady: function () {
         // app.receivedEvent('deviceready');
         refreshButton.ontouchstart = app.list;
-        
-        
+
+
         console.log("onDeviceReady");
     },
     mideTension: function () {
@@ -207,13 +211,15 @@ var app = {
                  console.log("Hay " + numBytes + " bytes a leer.");
                  });*/
 
-                bluetoothSerial.read(function (data) {
+                bluetoothSerial.readUntil('U', function (data) {
+
+                    console.log("Tension Brut:" + data);
                     app.tension = data.substring(1, 4);
                     if (app.tension) {
                         app.showGaugeVolt(app.tension);
                         $("#Tension").html(app.tension + " V.");
                     } else
-                        $("#Tension").html("0.0 V.")
+                        $("#Tension").html("0.0 V.");
 
                 });
 
@@ -221,7 +227,6 @@ var app = {
 
         });
         console.log("mide tension: " + app.tension + " V");
-
 
     },
     mideCorriente: function () {
@@ -234,10 +239,10 @@ var app = {
                  });*/
 
                 bluetoothSerial.read(function (dato) {
-                    app.corriente =dato.substring(1, 4);
+                    app.corriente = dato.substring(1, 4);
                     if (app.corriente !== null) {
                         app.showGaugeAmp(app.corriente);
-                        $("#Corriente").html( app.corriente + " A.");
+                        $("#Corriente").html(app.corriente + " A.");
                     } else
                         $("#Corriente").html("0.0 A.")
 
@@ -304,10 +309,8 @@ var app = {
         $("#deviceList").hide('slow');
         $("#divDatos").show('slow');
 
-        
-        app.tglInterTemperatura=setInterval(function () {
-                app.mideTemperatura();
-            }, 60000);
+
+
         //  toast("Conectado a..." + this.deviceName);
         //  app.setStatus("Conectado a..." + this.deviceName);
         console.log("Conectado a...");//+ this.deviceName);
@@ -325,7 +328,7 @@ var app = {
         $("#divConectar").show('slow');
         $("#divDatos").hide('slow');
         toast("Desconectado...");
-        clearInterval(app.tglInterTemperatura);
+
         //app.setStatus("Desconectando.");
     },
     timeoutId: 0,
@@ -383,7 +386,7 @@ var app = {
                 toast("No Bluetooth Peripherals Discovered.");
                 //app.setStatus("No Bluetooth Peripherals Discovered.");
             } else { // Android
-                toast("Please Pair a Bluetooth Device.");
+                toast("Empareja Dispositivo Bluetooth.");
                 //app.setStatus("Please Pair a Bluetooth Device.");
             }
 
@@ -448,47 +451,60 @@ var app = {
     },
     recibeVA: function () {
 
+
+
         app.toggleMedida ^= true;
 
         if (app.toggleMedida) {
+            $("#asinc").hide();
+
+
             app.toggleInterval = setInterval(function () {
                 app.mideVA();
             }, 5000);
             console.log("debug:toggleMedida: " + app.toggleInterval);
         } else {
+            $("#asinc").show();
             clearInterval(app.toggleInterval);
             console.log("debug:toggleMedida else: " + app.toggleInterval);
         }
         console.log("debug:toggle: " + app.toggleMedida);
     },
     mideTemperatura: function () {
-        
+
         bluetoothSerial.write("K", function () {
-            bluetoothSerial.read(function (data) {
-               
-             app.temperatura= data.substring(1, 3); 
-             if(app.temperatura !== 0)
-                  app.showGaugeTemp(app.temperatura)   
-             console.log("Temperatura: "+app.temperatura)
-            }); 
+
+            setTimeout(function () {
+                bluetoothSerial.readUntil('U', function (data) {
+
+                    app.temperatura = data.substring(1, 3);
+                    //  if (app.temperatura !== 0)
+                    app.showGaugeTemp(app.temperatura);
+                    console.log("Temperatura: " + app.temperatura);
+                });
+
+            }, 700);
         });
-        
+
     },
     showGaugeVolt: function (valor) {
 
-        app.gaugeVolt.draw();
+        //  app.gaugeVolt.draw();
         this.gaugeVolt.setValue(valor);
 
     },
     showGaugeAmp: function (valor) {
 
-        app.gaugeAmp.draw();
+        //  app.gaugeAmp.draw();
         this.gaugeAmp.setValue(valor);
     },
     showGaugeTemp: function (valor) {
 
-        app.gaugeTemp.draw();
+        //app.gaugeTemp.draw();
         this.gaugeTemp.setValue(valor);
+    },
+    recibeTemperatura: function () {
+        app.mideTemperatura();
     }
 
 };

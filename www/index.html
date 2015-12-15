@@ -59,7 +59,7 @@
                 <div id="connectionScreen" >
                     <p>Conexion</p>
                     <div id="deviceList" >
-                    <p id="debug"></p>
+                        <p id="debug"></p>
                     </div>
                     <div id="divConectar">
                         <button id="refreshButton" data-theme='b'>Busca Nodos</button>
@@ -73,12 +73,15 @@
                             <option value="off">No Mide</option>
                             <option value="on">Mide</option>
                         </select>
-                        <button id="sendTension" data-theme='b'>Tension</button> 
-                        <button id="sendCorriente" data-theme='b'>Corriente</button>
-                        <button id="recvBufTension" data-theme='b'>B.Tension</button>
-                        <button id="recvBufCorriente" data-theme='b'>B.Corriente</button>
+                        <div id="asinc">
+                            <button id="sendTension" data-theme='b'>Tension</button> 
+                            <button id="sendCorriente" data-theme='b'>Corriente</button>
+                            <button id="recvBufTension" data-theme='b'>B.Tension</button>
+                            <button id="recvBufCorriente" data-theme='b'>B.Corriente</button>
+                            <button id="recvTemperatura" data-theme='c'>Temperatura</button>
+                        </div>
                     </div>
-                   
+
                 </div>  <!-- Connection Screen -->    
 
             </div><!-- /content -->
