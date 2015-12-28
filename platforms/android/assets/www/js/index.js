@@ -198,8 +198,6 @@ var app = {
     onDeviceReady: function () {
         // app.receivedEvent('deviceready');
         refreshButton.ontouchstart = app.list;
-
-
         console.log("onDeviceReady");
     },
     mideTension: function () {

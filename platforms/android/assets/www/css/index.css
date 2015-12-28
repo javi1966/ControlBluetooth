@@ -31,14 +31,19 @@
 
 }
 
-.ui-header h1{
-
-    color:yellow;
-    font-family: cursive;
-    letter-spacing: 3px; 
+.ui-body-e {
+    background-color:#fbef7e !important;
 }
 
-#content {
+.ui-header-fixed {
+
+    color:yellow !important;
+    font-family: cursive !important;
+    letter-spacing: 3px !important; 
+    background-color: #5f9cc5 !important;
+}
+
+.ui-content {
 
     margin : 0;
     padding: 0;
@@ -74,7 +79,7 @@
 
 #visual {
 
-    
+
     padding: 0 !important;
     margin: 0 !important;
     float : left;
@@ -82,21 +87,21 @@
     background-image: url("../img/fondo_negro.jpg") !important; 
     width: 74% !important;
     height: 100% !important;
-    
+
 
 }
 
 #gaugeVolt {
-    
+
     float:right;
 }
 
 #gaugeAmp {
-    
+
     float:left;
 }
 #Tension{
-    
+
     float:right;
 }
 #Corriente{
@@ -119,10 +124,13 @@
 
 }
 
-#connectionScreen button {
-
-   /*margin:10% 30% 5% 30%;*/
-    margin-left: 5% !important;
+ button {
+    box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+    border-radius: 1em !important;
+    color : yellow !important;
+    background:linear-gradient( #5f9cc5,#396b9e )  !important;
+    background:-webkit-linear-gradient( #5f9cc5,#396b9e )  !important;
+    text-align: center !important;
 }
 
 #connectionScreen p {
@@ -160,6 +168,16 @@
     box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
 }
 
+.ui-flipswitch{
+    border-radius: 1em;
+    
+    color: yellow !important;
+    box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+    background:linear-gradient( #5f9cc5,#396b9e )  !important;
+    background:-webkit-linear-gradient( #5f9cc5,#396b9e )  !important;
+}
+
+
 .disp_valor {
     float:bottom;
     font-family:bpdotsregular; 
@@ -170,24 +188,30 @@
     margin: 0;
 }
 
+.ui-footer-fixed {
+    background-color: #5f9cc5 !important;
+    color: white !important;
+    letter-spacing: 3px !important; 
+}
+
 @media screen and (max-width : 380){
-    
+
     .disp_valor{
-        
+
         font-size: 1em;
     }
-    
+
     #gaugeVolt {
-        
+
         width:50px;
         height:50px;
     }
-    
-     #gaugeAmp {
-        
+
+    #gaugeAmp {
+
         width:50px;
         height:50px;
     }
-    
+
 }
 
