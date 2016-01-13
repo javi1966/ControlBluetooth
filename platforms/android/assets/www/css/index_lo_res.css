@@ -1,0 +1,144 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-ene-2016, 18:55:58
+    Author     : JaviMedion
+*/
+
+@font-face {
+    font-family: 'bpdotsregular';
+    src: url('../fonts/bpdots-webfont.eot');
+    src: url('../fonts/bpdots-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/bpdots-webfont.woff2') format('woff2'),
+        url('../fonts/bpdots-webfont.woff') format('woff'),
+        url('../fonts/bpdots-webfont.ttf') format('truetype'),
+        url('../fonts/bpdots-webfont.svg#bpdotsregular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+.ui-body-e {
+    background-color:#fbef7e !important;
+}
+
+.ui-header-fixed {
+
+    color:yellow !important;
+    font-family: cursive !important;
+    letter-spacing: 3px !important; 
+    background-color: #5f9cc5 !important;
+    height:2em;
+    
+}
+
+.ui-header-fixed h1{
+    
+    font-size :0.8em !important;
+   
+}
+
+.ui-content {
+
+    margin : 0;
+    padding: 0;
+    position : absolute !important; 
+    top : 40px !important;  
+    right : 0; 
+    bottom : 40px !important;  
+    left : 0 !important; 
+    color: black !important;
+    display: inline !important; 
+}
+
+
+#visual {
+
+    padding: 0 !important;
+    margin: 0 !important;
+    float : left;
+    border-right:4px dotted white;
+    background-image: url("../img/fondo_negro.jpg") !important; 
+    width: 74% !important;
+    height: 100% !important;
+    
+
+}
+
+#gaugeVolt {
+    width:90px;
+    height:90px;
+    float:right;
+}
+
+#gaugeAmp {
+    width:90px;
+    height:90px;
+    float:next;
+}
+#gaugeTemp{
+    width:40px;
+    height:40px;
+    float:next; 
+    
+}
+
+.disp_valor {
+    float:bottom;
+    font-family:bpdotsregular; 
+    letter-spacing: 2px; 
+    text-align :center;
+    color:#99ff33;
+    font-size: 1.4em;
+    margin: 0;
+}
+
+#Tension{
+
+    float:right;
+}
+#Corriente{
+    float:left;
+    margin-left: 0.5em;
+}
+
+#connectionScreen {
+    float:right;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 25% !important;
+    background:linear-gradient( #99ff33,#CCFFCC )  !important;
+    background:-webkit-linear-gradient( #99ff33,#CCFFCC )  !important;
+    height: 100% !important;
+
+}
+
+ button {
+    box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+    border-radius: 1em !important;
+    color : yellow !important;
+    background:linear-gradient( #5f9cc5,#396b9e )  !important;
+    background:-webkit-linear-gradient( #5f9cc5,#396b9e )  !important;
+    text-align: center !important;
+    font-size: 0.8em !important;
+}
+#connectionScreen p {
+   font-size: 0.8em !important;
+   text-align: center;
+   margin : 0 0 0 0;
+}
+
+.ui-footer-fixed {
+    background-color: #5f9cc5 !important;
+    color: white !important;
+    letter-spacing: 3px !important; 
+    height:2em;
+}
+
+.ui-footer-fixed h1 {
+     font-size :0.8em !important;
+}
+

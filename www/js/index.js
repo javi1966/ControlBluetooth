@@ -28,8 +28,8 @@ var toast = function (msg) {
 var app = {
     gaugeVolt: new Gauge({
         renderTo: 'gaugeVolt',
-        width: 250,
-        height: 250,
+       // width: 250,
+       // height: 250,
         glow: true,
         units: 'Voltios',
         title: false,
@@ -59,8 +59,8 @@ var app = {
     }),
     gaugeAmp: new Gauge({
         renderTo: 'gaugeAmp',
-        width: 250,
-        height: 250,
+        //width: 250,
+        //height: 250,
         glow: true,
         units: 'Amperios',
         title: false,
@@ -90,8 +90,8 @@ var app = {
     }),
     gaugeTemp: new Gauge({
         renderTo: 'gaugeTemp',
-        width: 200,
-        height: 200,
+        //width: 200,
+        //height: 200,
         glow: true,
         units: 'ºC',
         title: 'Temperatura',
@@ -176,13 +176,7 @@ var app = {
 
         $("#content").height = content;
 
-        if (deviceWidth <= 380) {
-            this.gaugeVolt.updateConfig({width: 50, height: 50});
-            this.gaugeAmp.updateConfig({width: 50, height: 50});
-            $("#Tension").css("font-size", "1em");
-            $("#Corriente").css("font-size", "1em");
-            Console.log("device width < 380");
-        }
+        
         // app.showGaugeVolt(0);
         app.gaugeVolt.draw();
         app.gaugeTemp.draw();
