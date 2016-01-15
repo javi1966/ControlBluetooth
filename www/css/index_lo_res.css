@@ -64,26 +64,27 @@ and open the template in the editor.
     background-image: url("../img/fondo_negro.jpg") !important; 
     width: 70% !important;
     height: 100% !important;
-    display:inline !important;
+    display:block;
     
 
 }
 
 #gaugeVolt {
-    width:90px;
-    height:90px;
+    width:100px;
+    height:100px;
     float:right;
 }
 
 #gaugeAmp {
-    width:90px;
-    height:90px;
-    float:right;
+    width:100px;
+    height:100px;
+    float:left;
 }
 #gaugeTemp{
-    width:40px;
-    height:40px;
-    float:next; 
+    width:50px;
+    height:50px;
+    float:next;
+   
     
 }
 
@@ -99,7 +100,7 @@ and open the template in the editor.
 
 #Tension{
 
-    float:next;
+    float:right;
 }
 #Corriente{
     float:left;
@@ -114,7 +115,7 @@ and open the template in the editor.
     background:linear-gradient( #99ff33,#CCFFCC )  !important;
     background:-webkit-linear-gradient( #99ff33,#CCFFCC )  !important;
     height: 100% !important;
-
+    display:block;
 }
 
  button {
@@ -140,6 +141,26 @@ and open the template in the editor.
 }
 
 .ui-footer-fixed h1 {
-     font-size :0.8em !important;
+     font-size :0.9em !important;
 }
 
+
+
+#btnAbout {
+  left:0.125em;
+  top:0.125em;  
+  margin: 0 0 0 0 !important;
+  background-color:#99ff33;
+}
+
+#popupAbout {
+   font-size: 1em;
+   opacity:0.90;
+   background:#fbef7e;
+    
+}
+
+#popupAbout a{
+   margin:8% 15% 5% 15%;
+    
+}

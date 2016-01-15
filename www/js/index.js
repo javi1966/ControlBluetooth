@@ -28,8 +28,8 @@ var toast = function (msg) {
 var app = {
     gaugeVolt: new Gauge({
         renderTo: 'gaugeVolt',
-       // width: 250,
-       // height: 250,
+        // width: 250,
+        // height: 250,
         glow: true,
         units: 'Voltios',
         title: false,
@@ -131,6 +131,8 @@ var app = {
     toggleInterval: 0,
     tglInterTemperatura: 0,
     _DEBUG_: true,
+    deviceWidth: 0,
+    deviceHeight: 0,
     // Application Constructor
     initialize: function () {
         this.bindEvents();
@@ -151,16 +153,17 @@ var app = {
         recvBufCorriente.ontouchstart = app.recibeBufCorr;
         sendVA.change = app.recibeVA;
         recvTemperatura.ontouchstart = app.recibeTemperatura;
+        btnAbout.ontouchstart = app.about;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
-        var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
-        var deviceHeight = window.orientation == 90 ? window.screen.width : window.screen.height;
+        app.deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+        app.deviceHeight = window.orientation == 90 ? window.screen.width : window.screen.height;
         console.log("Orientacion:" + window.orientation);
         console.log("PixelRatio: " + window.devicePixelRatio);
-        console.log("Width: " + deviceWidth / window.devicePixelRatio);
-        console.log("Heigth: " + deviceHeight / window.devicePixelRatio);
-        $("#debug").html(deviceHeight / window.devicePixelRatio + "x" + deviceWidth / window.devicePixelRatio);
+        console.log("Width: " + app.deviceWidth / window.devicePixelRatio);
+        console.log("Heigth: " + app.deviceHeight / window.devicePixelRatio);
+
 
 
         $("#divDesc").hide();
@@ -176,7 +179,7 @@ var app = {
 
         $("#content").height = content;
 
-        
+
         // app.showGaugeVolt(0);
         app.gaugeVolt.draw();
         app.gaugeTemp.draw();
@@ -497,6 +500,11 @@ var app = {
     },
     recibeTemperatura: function () {
         app.mideTemperatura();
+    },
+    about: function () {
+        $("#popupAbout").show();
+        $("#pRes").html("Resol. "+app.deviceHeight / window.devicePixelRatio + "x" + app.deviceWidth / window.devicePixelRatio);
     }
+
 
 };

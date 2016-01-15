@@ -23,7 +23,7 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css"/>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
 
         <script src="js/jquery-2.1.4.min.js"></script>
         <script  src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -36,6 +36,7 @@
         <div data-role="page" id="main">
 
             <div data-role="header" class="ui-header-fixed ui-corner-all">
+               
                 <h1 >Visor Consumo</h1>
             </div><!-- /header -->
 
@@ -47,6 +48,7 @@
                     <canvas id="gaugeVolt"></canvas>
                     <canvas id="gaugeTemp"></canvas> 
                     <canvas id="gaugeAmp"></canvas>
+                    <br/><br/><br/>
 
                     <p class="disp_valor" id="Tension">0.00 V</p>
                     <p class="disp_valor" id="Corriente">0.00 A</p> 
@@ -58,7 +60,7 @@
                 <div id="connectionScreen" >
                     <p>Conexion</p>
                     <div id="deviceList" >
-                        <p id="debug"></p>
+                        
                     </div>
                     <div id="divConectar">
                         <button id="refreshButton" class="ui-corner-all">Busca Nodos</button>
@@ -85,11 +87,26 @@
                         </div>
                     </div>
 
-                </div>  <!-- Connection Screen -->    
+                </div>  <!-- Connection Screen -->  
+                
+                
+                <div data-role="popup" id="popupAbout"  data-theme="a" data-transition="flip"  class="ui-corner-all">
+                    <div data-role="header"  style="margin-left:1%;margin-right:1%;margin-top:1%;"  class="ui-corner-all">
+                        <h1 style="text-align:center;color:blueviolet;"
+                            >About</h1>
+                    </div>
+                    <p style="text-align:center;">ControlBluetooth</p>
+                    <p id="pRes">Resolucion</p>
+                    <a href="#" style=" background:rgba(152,255,0,0.6);" data-role="button" data-rel="back" >Cerrar</a>
+
+                </div>
 
             </div><!-- /content -->
 
-            <div data-role="footer" class="ui-footer-fixed ui-corner-all" >
+            <div data-role="footer" class="ui-footer-fixed">
+                
+               
+                 <a href="#popupAbout" id="btnAbout" data-role="button" data-rel="popup" data-icon="info" data-iconpos="notext" class="ui-btn-left" >Delete</a> 
                 <h1>Javier Espinosa Guerra</h1>
             </div><!-- /footer -->
         </div><!-- /page -->  
