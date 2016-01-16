@@ -35,7 +35,7 @@
 
         <div data-role="page" id="main">
 
-            <div data-role="header" class="ui-header-fixed ui-corner-all">
+            <div data-role="header" class="ui-header-fixed ui-corner-all ui-shadow">
                
                 <h1 >Visor Consumo</h1>
             </div><!-- /header -->
@@ -45,10 +45,11 @@
                 <div id="visual">
 
 
-                    <canvas id="gaugeVolt"></canvas>
-                    <canvas id="gaugeTemp"></canvas> 
+                    
                     <canvas id="gaugeAmp"></canvas>
-                    <br/><br/><br/>
+                    <canvas id="gaugeTemp"></canvas> 
+                    <canvas id="gaugeVolt"></canvas>
+                    <br/>
 
                     <p class="disp_valor" id="Tension">0.00 V</p>
                     <p class="disp_valor" id="Corriente">0.00 A</p> 
@@ -103,11 +104,11 @@
 
             </div><!-- /content -->
 
-            <div data-role="footer" class="ui-footer-fixed">
+            <div data-role="footer" class="ui-footer-fixed ui-corner-all ui-shadow">
                 
                
                  <a href="#popupAbout" id="btnAbout" data-role="button" data-rel="popup" data-icon="info" data-iconpos="notext" class="ui-btn-left" >Delete</a> 
-                <h1>Javier Espinosa Guerra</h1>
+                 <h1>Javier Espinosa Guerra</h1>
             </div><!-- /footer -->
         </div><!-- /page -->  
 

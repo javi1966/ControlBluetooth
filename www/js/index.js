@@ -153,7 +153,7 @@ var app = {
         recvBufCorriente.ontouchstart = app.recibeBufCorr;
         sendVA.change = app.recibeVA;
         recvTemperatura.ontouchstart = app.recibeTemperatura;
-        btnAbout.ontouchstart = app.about;
+        btnAbout.onclick = app.about;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
@@ -181,9 +181,11 @@ var app = {
 
 
         // app.showGaugeVolt(0);
-        app.gaugeVolt.draw();
-        app.gaugeTemp.draw();
         app.gaugeAmp.draw();
+        app.gaugeTemp.draw();
+        app.gaugeVolt.draw();
+        
+       
         //  app.showGaugeTemp(0);
         // app.showGaugeAmp(0);
         console.log("log:onPageShow");
