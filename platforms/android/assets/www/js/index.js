@@ -154,6 +154,7 @@ var app = {
         sendVA.change = app.recibeVA;
         recvTemperatura.ontouchstart = app.recibeTemperatura;
         btnAbout.onclick = app.about;
+        cerrar.ontouchstart=app.Cerrar;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
@@ -197,6 +198,7 @@ var app = {
     onDeviceReady: function () {
         // app.receivedEvent('deviceready');
         refreshButton.ontouchstart = app.list;
+        $(document).bind("resume", app.onResumedApp);
         console.log("onDeviceReady");
     },
     mideTension: function () {
@@ -505,7 +507,31 @@ var app = {
     },
     about: function () {
         $("#popupAbout").show();
-        $("#pRes").html("Resol. "+app.deviceHeight / window.devicePixelRatio + "x" + app.deviceWidth / window.devicePixelRatio);
+       // $("#pRes").html("Resol. "+app.deviceHeight / window.devicePixelRatio + "x" + app.deviceWidth / window.devicePixelRatio);
+    }
+    ,
+    Cerrar: function() {
+        
+        navigator.notification.confirm(
+                'Quieres salir de la APP?',
+                app.onConfirmExit,
+                'Confirma Salida',
+                ['OK', 'Cancel']
+                );
+        console.log("Cerrar");
+        
+        
+    },
+    onConfirmExit: function(buttonIndex) {
+        if (buttonIndex === 1) {
+
+            navigator.app.exitApp();
+            console.log("onConfirmExit");
+        }
+    }
+    ,
+    onResumedApp : function() {
+        toast("Salida De Pausa de APP");
     }
 
 

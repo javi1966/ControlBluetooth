@@ -36,11 +36,21 @@
 }
 
 .ui-header-fixed {
-
-    color:yellow !important;
+    color:orange !important;
     font-family: cursive !important;
     letter-spacing: 3px !important; 
-    background-color: #5f9cc5 !important;
+    background: linear-gradient(blue,lightblue) !important;
+    background: -webkit-linear-gradient(blue,lightblue) !important;
+    -webkit-text-shadow: 0px 0px 19px white !important;
+    text-shadow:0px 0px 19px white !important;
+}
+
+.ui-header-fixed a{
+    background: linear-gradient(blue,lightblue); 
+    border:0;
+    padding-right: 8px;
+    padding-top: 30px;
+   
 }
 
 .ui-content {
@@ -188,11 +198,12 @@
 }
 
 .ui-footer-fixed {
-    background-color: #5f9cc5 !important;
+    background: linear-gradient(blue,lightblue) !important;
+    background: -webkit-linear-gradient(blue,lightblue) !important;
     color: white !important;
     letter-spacing: 3px !important; 
 }
-
+/*
 @media screen and (max-width : 380){
 
     .disp_valor{
@@ -213,4 +224,4 @@
     }
 
 }
-
+*/

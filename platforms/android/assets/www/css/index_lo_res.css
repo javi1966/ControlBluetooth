@@ -27,19 +27,33 @@ and open the template in the editor.
 
 .ui-header-fixed {
 
-    color:yellow !important;
+    color:white !important;
     font-family: cursive !important;
     letter-spacing: 3px !important; 
-    background-color: #5f9cc5 !important;
+    background: linear-gradient(blue,lightblue) !important;
+    background: -webkit-linear-gradient(blue,lightblue) !important;
+    -webkit-text-shadow: 0px 0px 19px white !important;
+    text-shadow:0px 0px 19px white !important;
    
     
 }
 
+.ui-header-fixed a{
+    background: linear-gradient(blue,lightblue); 
+    border:0;
+    padding-right: 8px;
+    
+    padding-top: 17px;
+    padding-bottom:4px;
+}
+
 .ui-header {
     
-    font-size :0.7em !important;
+    font-size :0.9em !important;
     
 }
+
+
 
 .ui-content {
 
@@ -72,13 +86,13 @@ and open the template in the editor.
 #gaugeVolt {
     width:123px;
     height:123px;
-    float:left;
+    float:next;
 }
 
 #gaugeAmp {
     width:123px;
     height:123px;
-    float:next;
+    float:left;
 }
 #gaugeTemp{
     width:123px;
@@ -136,7 +150,8 @@ and open the template in the editor.
 }
 
 .ui-footer-fixed {
-    background-color: #5f9cc5 !important;
+    background: linear-gradient(blue,lightblue) !important;
+    background: -webkit-linear-gradient(blue,lightblue) !important;
     color: white !important;
     letter-spacing: 3px !important; 
     
