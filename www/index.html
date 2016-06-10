@@ -35,30 +35,33 @@
 
         <div data-role="page" id="main">
 
-            <div data-role="header" class="ui-header-fixed ui-corner-all ui-shadow">
-                <a href="#" id="cerrar"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-power"></a> 
+            <div data-role="header" class="ui-header-fixed  ui-shadow">
+                <a href="#" id="btnCerrar"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-power "></a> 
                 <h1 >Visor Consumo</h1>
             </div><!-- /header -->
 
             <div role ="main" class="ui-content">
 
                 <div id="visual">
-
-
-                    
+                    <br/><br/>
                     <canvas id="gaugeAmp"></canvas>
                     <canvas id="gaugeTemp"></canvas> 
                     <canvas id="gaugeVolt"></canvas>
-                    <br/>
+                    <br/><br/>
 
-                    <p class="disp_valor" id="Tension">0.00 V</p>
-                    <p class="disp_valor" id="Corriente">0.00 A</p> 
+                    <p class="disp_valor" id="Tension">000.0</p>
+                    <p class="magnitud">V.</p> 
+                    <p class="disp_valor" id="Temperatura">00.0 </p>
+                    <p class="magnitud">ºC</p> 
+                    <p class="disp_valor" id="Corriente">00.0 </p> 
+                    <p class="magnitud">A</p> 
 
                 </div>
 
 
 
                 <div id="connectionScreen" >
+                    <br/>
                     <p>Conexion</p>
                     <div id="deviceList" >
                         
@@ -91,23 +94,20 @@
                 </div>  <!-- Connection Screen -->  
                 
                 
-                <div data-role="popup" id="popupAbout"  data-theme="a" data-transition="flip"  class="ui-corner-all">
-                    <div data-role="header"  style="margin-left:1%;margin-right:1%;margin-top:1%;"  class="ui-corner-all">
-                        <h1 style="text-align:center;color:blueviolet;"
+                <div data-role="popup" id="popupAbout"  data-theme="a" data-transition="slidefade"  class="ui-corner-all">
+                    <div data-role="header"  style="margin-left:1%;margin-right:1%;margin-top:1%;"  class="ui-corner-all ui-shadow-inset">
+                        <h1 style="text-align:center;color:black;"
                             >About</h1>
                     </div>
                     <p style="text-align:center;">ControlBluetooth</p>
-                    <p id="pRes">Resolucion</p>
-                    <a href="#" style=" background:rgba(152,255,0,0.6);" data-role="button" data-rel="back" >Cerrar</a>
+                    <a href="#"   data-rel="back"  class="ui-btn ui-btn-corner-all ui-shadow-inset">Cerrar</a>
 
                 </div>
 
             </div><!-- /content -->
 
             <div data-role="footer" class="ui-footer-fixed ui-corner-all ui-shadow">
-                
-               
-                 <a href="#popupAbout" id="btnAbout" data-role="button" data-rel="popup" data-icon="info" data-iconpos="notext" class="ui-btn-left" >Delete</a> 
+                 <a href="#" id="btnAbout"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-info ui-btn-icon-notext"></a> 
                  <h1>Javier Espinosa Guerra</h1>
             </div><!-- /footer -->
         </div><!-- /page -->  

@@ -1,4 +1,4 @@
-'use strict';
+
 
 var toast = function (msg) {
     $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>" + msg + "</h3></div>")
@@ -154,7 +154,7 @@ var app = {
         sendVA.change = app.recibeVA;
         recvTemperatura.ontouchstart = app.recibeTemperatura;
         btnAbout.onclick = app.about;
-        cerrar.ontouchstart=app.Cerrar;
+        btnCerrar.ontouchstart=app.Cerrar;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
@@ -196,6 +196,8 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
+        
+        toast("Iniciando...");
         // app.receivedEvent('deviceready');
         refreshButton.ontouchstart = app.list;
         $(document).bind("resume", app.onResumedApp);
@@ -506,7 +508,9 @@ var app = {
         app.mideTemperatura();
     },
     about: function () {
-        $("#popupAbout").show();
+       // $("#popupAbout").show();
+        $('#popupAbout').popup('open');
+        console.log("about");
        // $("#pRes").html("Resol. "+app.deviceHeight / window.devicePixelRatio + "x" + app.deviceWidth / window.devicePixelRatio);
     }
     ,
@@ -518,6 +522,7 @@ var app = {
                 'Confirma Salida',
                 ['OK', 'Cancel']
                 );
+        
         console.log("Cerrar");
         
         

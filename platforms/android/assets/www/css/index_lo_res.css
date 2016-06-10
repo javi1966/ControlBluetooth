@@ -16,8 +16,11 @@ and open the template in the editor.
         url('../fonts/bpdots-webfont.woff') format('woff'),
         url('../fonts/bpdots-webfont.ttf') format('truetype'),
         url('../fonts/bpdots-webfont.svg#bpdotsregular') format('svg');
+    font-family: font7segmentos;
+    src: url('../fonts/DSEG7Classic-BoldItalic.woff');
     font-weight: bold;
     font-style: normal;
+    
 
 }
 
@@ -27,31 +30,36 @@ and open the template in the editor.
 
 .ui-header-fixed {
 
-    color:white !important;
+    color:orange !important;
     font-family: cursive !important;
     letter-spacing: 3px !important; 
-    background: linear-gradient(blue,lightblue) !important;
-    background: -webkit-linear-gradient(blue,lightblue) !important;
-    -webkit-text-shadow: 0px 0px 19px white !important;
-    text-shadow:0px 0px 19px white !important;
-   
+   /* background: linear-gradient(blue,lightblue) !important;
+    background: -webkit-linear-gradient(blue,lightblue) !important;*/
+    background-color:black !important;
+    -webkit-text-shadow: 0px 0px 15px white !important;
+    text-shadow:-0px 0px 9px white !important;
+    font-size :0.9em !important;
+    border-top-color:orange !important; 
+    border-top-width: 2px !important;
+    border-bottom-color:orange !important; 
+    border-bottom-width: 2px !important;
     
 }
+
 
 .ui-header-fixed a{
-    background: linear-gradient(blue,lightblue); 
-    border:0;
-    padding-right: 8px;
-    
-    padding-top: 17px;
-    padding-bottom:4px;
+  left:0.125em;
+  top:0.125em;  
+  margin: 0 0 0 0 !important;
+  border : 0 !important;
+  padding-left:0!important;
+  background-color:black !important;
+  height:1.2em;
+  width:1.2em;
+  color:greenyellow !important;
 }
 
-.ui-header {
-    
-    font-size :0.9em !important;
-    
-}
+
 
 
 
@@ -64,7 +72,7 @@ and open the template in the editor.
     right : 0; 
     bottom : 30px !important;  
     left : 0 !important; 
-    background-color: black !important;
+    /*background-color: black !important;*/
     display: block !important; 
 }
 
@@ -76,11 +84,9 @@ and open the template in the editor.
     float : left;
     /*border-right:4px dotted white;*/
     background-image: url("../img/fondo_negro.jpg") !important; 
-    width: 70% !important;
+    width: 71% !important;
     height: 100% !important;
-    display:block;
-    
-
+ 
 }
 
 #gaugeVolt {
@@ -98,27 +104,31 @@ and open the template in the editor.
     width:123px;
     height:123px;
     float:next;
-   
-    
+  
 }
 
 .disp_valor {
    /* float:bottom;*/
-    font-family:bpdotsregular; 
+    font-family:font7segmentos; 
     letter-spacing: 2px; 
     text-align :center;
+    font-weight:bold;
     color:#99ff33;
-    font-size: 1.4em;
+    font-size: 1.6em;
     margin: 0;
+    -webkit-text-shadow: 0px 0px 25px white !important;
+    text-shadow:0px 0px 25px white !important;
+    display:inline !important;
+    padding-right:0.25em;
+    padding-left:0.5em;
 }
-
-#Tension{
-
-    float:right;
-}
-#Corriente{
-    float:left;
-    margin-left: 0.5em;
+.magnitud {
+   color:orange; 
+   font-family:"Times New Roman", Times, serif;
+   font-weight:bold;
+   text-shadow: 0px 0px 18px yellow;
+   font-size:1.5em;
+   display:inline;
 }
 
 #connectionScreen {
@@ -126,11 +136,24 @@ and open the template in the editor.
     padding: 0 !important;
     margin: 0 !important;
     width: 29% !important;
-    background:linear-gradient( #99ff33,#CCFFCC )  !important;
-    background:-webkit-linear-gradient( #99ff33,#CCFFCC )  !important;
+    background-color: black;
+    /*background:linear-gradient( #99ff33,#CCFFCC )  !important;*/
+    /*background:-webkit-linear-gradient( #99ff33,#CCFFCC )  !important;*/
     height: 100% !important;
-    display:block;
-    
+    /*display:block;*/
+    -webkit-box-shadow: -3px -3px 30px 5px rgba(102,102,102,0.65) !important;
+    -moz-box-shadow: 0px 0px 5px 0px rgba(102,102,102,0.65) !important;
+    -ms-box-shadow: 0px 0px 5px 0px rgba(102,102,102,0.65) !important;
+    box-shadow: inset 0px 0px 15px 9px orange!important;
+}
+#connectionScreen p {
+   color:orange; 
+   font-size: 0.9em !important;
+   text-align: center;
+   margin : 2px 0 0 0;
+   text-decoration: underline; 
+   font-weight:bold;
+   text-shadow: 1px 1px 15px white;
 }
 
  button {
@@ -142,45 +165,57 @@ and open the template in the editor.
     text-align: center !important;
     font-size: 0.7em !important;
 }
-#connectionScreen p {
-   font-size: 0.8em !important;
-   text-align: center;
-   margin : 2px 0 0 0;
-   text-decoration: underline;  
-}
+
 
 .ui-footer-fixed {
+    /*
     background: linear-gradient(blue,lightblue) !important;
     background: -webkit-linear-gradient(blue,lightblue) !important;
-    color: white !important;
+    */
+    color: lightgray  !important;
+    background-color: black !important;
     letter-spacing: 3px !important; 
-    
-    
+    -webkit-text-shadow: 0px 0px 15px white !important;
+    text-shadow:0px 0px 8px white !important;
+    box-shadow: inset 0px 0px 9px 4px orange!important;
+    border-top: 0em;
 }
 
 .ui-footer-fixed h1 {
-     font-size :0.6em !important;
+     font-size :0.8em !important;
 }
+
+
 
 
 
 #btnAbout {
-  left:0.125em;
-  top:0.125em;  
+  left:0.8em;
+  top:0.5em;  
   margin: 0 0 0 0 !important;
-  background-color:#99ff33;
-  height:1.2em;
-  width:1.2em;
+  border : 0 !important;
+  background-color:black;
+  height:1.1em;
+  width:1.1em;
 }
 
 #popupAbout {
+    color:orange;
    font-size: 1em;
-   opacity:0.90;
-   background:#fbef7e;
+   opacity:0.95;
+   background: black;
+   -webkit-box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+    -ms-box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+    box-shadow:  0px 0px 20px 15px orange;
+    /*width:10em;*/
+    text-shadow: 0px 0px 15px white;
     
 }
 
 #popupAbout a{
-   margin:8% 15% 5% 15%;
-    
+  /* margin:8% 15% 5% 15%;*/
+   color:orange;
+   text-shadow: 0px 0px 15px white;
+   background-color: gray;
 }

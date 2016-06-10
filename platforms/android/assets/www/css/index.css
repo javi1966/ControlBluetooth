@@ -41,8 +41,7 @@
     letter-spacing: 3px !important; 
     background: linear-gradient(blue,lightblue) !important;
     background: -webkit-linear-gradient(blue,lightblue) !important;
-    -webkit-text-shadow: 0px 0px 19px white !important;
-    text-shadow:0px 0px 19px white !important;
+    
 }
 
 .ui-header-fixed a{
@@ -51,6 +50,12 @@
     padding-right: 8px;
     padding-top: 30px;
    
+}
+
+.ui-header-fixed h1 {
+    -webkit-text-shadow: 0px 0px 25px white !important;
+    text-shadow:0px 0px 19px white !important;
+    
 }
 
 .ui-content {
@@ -116,7 +121,7 @@
 }
 #Corriente{
     float:left;
-    margin-left: 0.5em;
+    margin-left: 0.7em;
 }
 
 
