@@ -158,20 +158,18 @@ var app = {
         console.log("log:bindEvents");
     },
     onPageShow: function () {
-        app.deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
-        app.deviceHeight = window.orientation == 90 ? window.screen.width : window.screen.height;
+        app.deviceWidth = (window.orientation === 0 ) ? window.screen.width : window.screen.height;
+        app.deviceHeight = ( window.orientation === 90 ) ? window.screen.width : window.screen.height;
         console.log("Orientacion:" + window.orientation);
         console.log("PixelRatio: " + window.devicePixelRatio);
         console.log("Width: " + app.deviceWidth / window.devicePixelRatio);
         console.log("Heigth: " + app.deviceHeight / window.devicePixelRatio);
 
-
-
         $("#divDesc").hide();
         $("#divDatos").hide();
 
-
         // var screen = $.mobile.getScreenHeight(),
+        /*
         var screen = $(window).height(),
                 header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
                 footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight(),
@@ -179,6 +177,8 @@ var app = {
                 content = screen - header - footer - contentCurrent;
 
         $("#content").height = content;
+        
+        */
 
 
         // app.showGaugeVolt(0);
@@ -295,13 +295,13 @@ var app = {
     },
     connect: function (e) {
 
-        this.deviceName = e.target.getAttribute('deviceId');
+        app.deviceName = e.target.getAttribute('deviceId');
 
-        toast("Conectando a..." + this.deviceName);
+        toast("Conectando a..." + app.deviceName);
         // app.setStatus("Conectando a..." + this.deviceName);
 
-        console.log("Conectando a..." + this.deviceName);
-        bluetoothSerial.connect(this.deviceName, app.onconnect, app.ondisconnect);
+        console.log("Conectando a..." + app.deviceName);
+        bluetoothSerial.connect(app.deviceName, app.onconnect, app.ondisconnect);
     },
     onconnect: function () {
 
@@ -310,17 +310,22 @@ var app = {
         $("#deviceList").hide('slow');
         $("#divDatos").show('slow');
 
-
+         $("#conectado").show()
+           .html("Conectado a " + (app.deviceName === "30:14:06:06:10:95" ? "NODO_1" : "Desconocido"))
+           .css({"text-shadow":" 0px 0px 10px white",
+                 "color":"white",
+                 "font-weight":"bold"});
 
         //  toast("Conectado a..." + this.deviceName);
         //  app.setStatus("Conectado a..." + this.deviceName);
-        console.log("Conectado a...");//+ this.deviceName);
+        console.log("Conectado a..."+ app.deviceName);
     },
     disconnect: function (event) {
         if (event) {
             event.preventDefault();
         }
         toast("Desconectando...");
+        $("#conectado").hide();
         //app.setStatus("Desconectando...");
         bluetoothSerial.disconnect(app.ondisconnect);
     },

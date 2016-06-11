@@ -36,7 +36,9 @@
         <div data-role="page" id="main">
 
             <div data-role="header" class="ui-header-fixed  ui-shadow">
-                <a href="#" id="btnCerrar"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-power "></a> 
+                <a href="#" id="btnAbout"  class="ui-btn ui-btn-right ui-btn-icon-right ui-icon-info ui-shadow-icon"></a> 
+                <a href="#" id="btnCerrar"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-power ui-shadow-icon"></a> 
+                
                 <h1 >Visor Consumo</h1>
             </div><!-- /header -->
 
@@ -44,9 +46,11 @@
 
                 <div id="visual">
                     <br/><br/>
-                    <canvas id="gaugeAmp"></canvas>
-                    <canvas id="gaugeTemp"></canvas> 
                     <canvas id="gaugeVolt"></canvas>
+                    <canvas id="gaugeTemp"></canvas> 
+                    <canvas id="gaugeAmp"></canvas> 
+                     
+                   
                     <br/><br/>
 
                     <p class="disp_valor" id="Tension">000.0</p>
@@ -55,6 +59,7 @@
                     <p class="magnitud">ºC</p> 
                     <p class="disp_valor" id="Corriente">00.0 </p> 
                     <p class="magnitud">A</p> 
+                    <p id="conectado" class="blink"></p>
 
                 </div>
 
@@ -67,7 +72,7 @@
                         
                     </div>
                     <div id="divConectar">
-                        <button id="refreshButton" class="ui-corner-all">Busca Nodos</button>
+                        <button id="refreshButton" class="ui-btn ui-corner-all">Busca Nodos</button>
                     </div>
                     <div id="divDesc">
                         <button id="descButton" class="ui-btn ui-corner-all">Desconecta Nodos</button>
@@ -83,10 +88,13 @@
                         </fieldset>
 
                         <div id="asinc">
-                            <button id="sendTension" class="ui-btn ui-corner-all ui-body-b">Tension</button> 
-                            <button id="sendCorriente" class="ui-btn ui-corner-all">Corriente</button>
-                            <button id="recvBufTension" class="ui-btn ui-corner-all">B.Tension</button>
-                            <button id="recvBufCorriente" class="ui-btn ui-corner-all">B.Corriente</button>
+                            
+                              <button id="sendTension" class="ui-btn ui-corner-all ui-body-b ui-btn-inline">Tension</button> 
+                              <button id="sendCorriente" class="ui-btn ui-corner-all ui-btn-inline">Corriente</button>
+                                                                                
+                              <button id="recvBufTension" class="ui-btn ui-corner-all  ui-btn-inline">B.Tension</button>
+                              <button id="recvBufCorriente" class="ui-btn ui-corner-all  ui-btn-inline">B.Corriente</button>
+                            
                             <button id="recvTemperatura" class="ui-btn ui-corner-all">Temperatura</button>
                         </div>
                     </div>
@@ -100,16 +108,18 @@
                             >About</h1>
                     </div>
                     <p style="text-align:center;">ControlBluetooth</p>
+                    <p style="text-align:center;">&copy;Javier Espinosa</p>
                     <a href="#"   data-rel="back"  class="ui-btn ui-btn-corner-all ui-shadow-inset">Cerrar</a>
 
                 </div>
 
             </div><!-- /content -->
-
+         <!--
             <div data-role="footer" class="ui-footer-fixed ui-corner-all ui-shadow">
                  <a href="#" id="btnAbout"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-info ui-btn-icon-notext"></a> 
                  <h1>Javier Espinosa Guerra</h1>
             </div><!-- /footer -->
+         
         </div><!-- /page -->  
 
 

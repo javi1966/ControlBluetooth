@@ -30,7 +30,7 @@ and open the template in the editor.
 
 .ui-header-fixed {
 
-    color:orange !important;
+    color:whitesmoke !important;
     font-family: cursive !important;
     letter-spacing: 3px !important; 
    /* background: linear-gradient(blue,lightblue) !important;
@@ -43,24 +43,18 @@ and open the template in the editor.
     border-top-width: 2px !important;
     border-bottom-color:orange !important; 
     border-bottom-width: 2px !important;
+    box-shadow: inset 0px 0px 9px 4px orange!important;
+    border-top: 0em;
     
 }
 
 
 .ui-header-fixed a{
-  left:0.125em;
-  top:0.125em;  
-  margin: 0 0 0 0 !important;
-  border : 0 !important;
-  padding-left:0!important;
-  background-color:black !important;
-  height:1.2em;
-  width:1.2em;
-  color:greenyellow !important;
+    background-color: black !important;  
+    border:0;
+    /*padding-right: 8px;*/
+    padding-top: 30px;
 }
-
-
-
 
 
 .ui-content {
@@ -70,7 +64,8 @@ and open the template in the editor.
     position : absolute !important; 
     top : 30px !important;  
     right : 0; 
-    bottom : 30px !important;  
+    /*bottom : 30px !important;*/
+    bottom: 0px;
     left : 0 !important; 
     /*background-color: black !important;*/
     display: block !important; 
@@ -92,13 +87,13 @@ and open the template in the editor.
 #gaugeVolt {
     width:123px;
     height:123px;
-    float:next;
+    float:left;
 }
 
 #gaugeAmp {
     width:123px;
     height:123px;
-    float:left;
+    float:right;
 }
 #gaugeTemp{
     width:123px;
@@ -114,7 +109,7 @@ and open the template in the editor.
     text-align :center;
     font-weight:bold;
     color:#99ff33;
-    font-size: 1.6em;
+    font-size: 1.7em;
     margin: 0;
     -webkit-text-shadow: 0px 0px 25px white !important;
     text-shadow:0px 0px 25px white !important;
@@ -157,21 +152,39 @@ and open the template in the editor.
 }
 
  button {
-    box-shadow: 10px 10px 5px 0px rgba(102,102,102,0.65);
+    box-shadow: 3px 3px 16px 1px lightblue;
     border-radius: 1em !important;
     color : yellow !important;
     background:linear-gradient( #5f9cc5,#396b9e )  !important;
     background:-webkit-linear-gradient( #5f9cc5,#396b9e )  !important;
     text-align: center !important;
-    font-size: 0.7em !important;
+    font-size: 0.6em !important;
 }
 
+.ui-flipswitch{
+    border-radius: 1em;
+    color: yellow !important;
+    box-shadow: 1px 1px 5px 0px rgba(102,102,102,0.65) !important;
+    background:linear-gradient( #5f9cc5,#396b9e )  !important;
+    background:-webkit-linear-gradient( #5f9cc5,#396b9e )  !important;
+    font-size: 1em !important;
+    margin: 0px !important;
+}
 
+label {
+    color:whitesmoke;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+    padding-right:10px;
+    text-shadow: 3px 3px 10px white;
+}
+
+/*
 .ui-footer-fixed {
-    /*
+   
     background: linear-gradient(blue,lightblue) !important;
     background: -webkit-linear-gradient(blue,lightblue) !important;
-    */
+    
     color: lightgray  !important;
     background-color: black !important;
     letter-spacing: 3px !important; 
@@ -185,12 +198,14 @@ and open the template in the editor.
      font-size :0.8em !important;
 }
 
+*/
+
 
 
 
 
 #btnAbout {
-  left:0.8em;
+  right:0.8em;
   top:0.5em;  
   margin: 0 0 0 0 !important;
   border : 0 !important;
@@ -218,4 +233,21 @@ and open the template in the editor.
    color:navy;
    text-shadow: 0px 0px 18px white;
    background-color: gray;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 2000ms infinite;
+    -webkit-animation:fade 2000ms infinite;
 }
