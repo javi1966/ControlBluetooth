@@ -154,12 +154,12 @@ var app = {
         sendVA.change = app.recibeVA;
         recvTemperatura.ontouchstart = app.recibeTemperatura;
         btnAbout.onclick = app.about;
-        btnCerrar.ontouchstart=app.Cerrar;
+        btnCerrar.ontouchstart = app.Cerrar;
         console.log("log:bindEvents");
     },
     onPageShow: function () {
-        app.deviceWidth = (window.orientation === 0 ) ? window.screen.width : window.screen.height;
-        app.deviceHeight = ( window.orientation === 90 ) ? window.screen.width : window.screen.height;
+        app.deviceWidth = (window.orientation === 0) ? window.screen.width : window.screen.height;
+        app.deviceHeight = (window.orientation === 90) ? window.screen.width : window.screen.height;
         console.log("Orientacion:" + window.orientation);
         console.log("PixelRatio: " + window.devicePixelRatio);
         console.log("Width: " + app.deviceWidth / window.devicePixelRatio);
@@ -170,23 +170,23 @@ var app = {
 
         // var screen = $.mobile.getScreenHeight(),
         /*
-        var screen = $(window).height(),
-                header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
-                footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight(),
-                contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height(),
-                content = screen - header - footer - contentCurrent;
-
-        $("#content").height = content;
-        
-        */
+         var screen = $(window).height(),
+         header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
+         footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight(),
+         contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height(),
+         content = screen - header - footer - contentCurrent;
+         
+         $("#content").height = content;
+         
+         */
 
 
         // app.showGaugeVolt(0);
         app.gaugeAmp.draw();
         app.gaugeTemp.draw();
         app.gaugeVolt.draw();
-        
-       
+
+
         //  app.showGaugeTemp(0);
         // app.showGaugeAmp(0);
         console.log("log:onPageShow");
@@ -196,7 +196,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        
+
         toast("Iniciando...");
         // app.receivedEvent('deviceready');
         refreshButton.ontouchstart = app.list;
@@ -215,12 +215,15 @@ var app = {
                 bluetoothSerial.readUntil('U', function (data) {
 
                     console.log("Tension Brut:" + data);
-                    app.tension = data.substring(1, 4);
-                    if (app.tension) {
+
+                    if (!data.indexOf(1) === '0') {
+                        app.tension = data.substring(1, 4);
                         app.showGaugeVolt(app.tension);
-                        $("#Tension").html(app.tension + " V.");
+                        $("#Tension").html(app.tension);
                     } else
-                        $("#Tension").html("0.0 V.");
+                        $("#Tension").html("000.0");
+
+
 
                 });
 
@@ -240,12 +243,14 @@ var app = {
                  });*/
 
                 bluetoothSerial.read(function (dato) {
-                    app.corriente = dato.substring(1, 4);
-                    if (app.corriente !== null) {
+                    console.log("Corr " + dato);
+                    if (!dato.indexOf(1) === '-') {
+                        app.corriente = dato.substring(1, 4);
                         app.showGaugeAmp(app.corriente);
-                        $("#Corriente").html(app.corriente + " A.");
+                        $("#Corriente").html(app.corriente);
+
                     } else
-                        $("#Corriente").html("0.0 A.")
+                        $("#Corriente").html("00.0")
 
                 });
 
@@ -310,15 +315,15 @@ var app = {
         $("#deviceList").hide('slow');
         $("#divDatos").show('slow');
 
-         $("#conectado").show()
-           .html("Conectado a " + (app.deviceName === "30:14:06:06:10:95" ? "NODO_1" : "Desconocido"))
-           .css({"text-shadow":" 0px 0px 10px white",
-                 "color":"white",
-                 "font-weight":"bold"});
+        $("#conectado").show()
+                .html("Conectado a " + (app.deviceName === "30:14:06:06:10:95" ? "NODO_1" : "Desconocido"))
+                .css({"text-shadow": " 0px 0px 10px white",
+                    "color": "white",
+                    "font-weight": "bold"});
 
         //  toast("Conectado a..." + this.deviceName);
         //  app.setStatus("Conectado a..." + this.deviceName);
-        console.log("Conectado a..."+ app.deviceName);
+        console.log("Conectado a..." + app.deviceName);
     },
     disconnect: function (event) {
         if (event) {
@@ -434,16 +439,16 @@ var app = {
                         if (app.tension !== null) {
                             //$("#Tension").html(app.tension + " V.");
                             app.showGaugeVolt(app.tension);
-                            $("#Tension").html(app.tension + " V.");
+                            $("#Tension").html(app.tension);
                         } else
-                            $("#Tension").html("0.0 V.");
+                            $("#Tension").html("000.0");
 
                         if (app.corriente) {
                             // $("#Corriente").html(app.corriente + " A.");
                             app.showGaugeAmp(app.corriente);
-                            $("#Corriente").html(app.corriente + " A.")
+                            $("#Corriente").html(app.corriente)
                         } else
-                            $("#Corriente").html("0.0 A.");
+                            $("#Corriente").html("00.0");
                     }
                     if (app._DEBUG_) {
                         console.log(data);
@@ -456,8 +461,6 @@ var app = {
         console.log("Recibe Buffer Volt-Amp");
     },
     recibeVA: function () {
-
-
 
         app.toggleMedida ^= true;
 
@@ -482,10 +485,16 @@ var app = {
 
             setTimeout(function () {
                 bluetoothSerial.readUntil('U', function (data) {
-
+                    console.log("data" + data);
+                    
                     app.temperatura = data.substring(1, 3);
-                    //  if (app.temperatura !== 0)
-                    app.showGaugeTemp(app.temperatura);
+
+                    if ( isNaN(app.temperatura)) {
+                        app.showGaugeTemp(app.temperatura);
+                        $("#Temperatura").html(app.temperatura);
+                    } else
+                        $("#Temperatura").html("00");
+
                     console.log("Temperatura: " + app.temperatura);
                 });
 
@@ -513,26 +522,26 @@ var app = {
         app.mideTemperatura();
     },
     about: function () {
-       // $("#popupAbout").show();
+        // $("#popupAbout").show();
         $('#popupAbout').popup('open');
         console.log("about");
-       // $("#pRes").html("Resol. "+app.deviceHeight / window.devicePixelRatio + "x" + app.deviceWidth / window.devicePixelRatio);
+        // $("#pRes").html("Resol. "+app.deviceHeight / window.devicePixelRatio + "x" + app.deviceWidth / window.devicePixelRatio);
     }
     ,
-    Cerrar: function() {
-        
+    Cerrar: function () {
+
         navigator.notification.confirm(
                 'Quieres salir de la APP?',
                 app.onConfirmExit,
                 'Confirma Salida',
                 ['OK', 'Cancel']
                 );
-        
+
         console.log("Cerrar");
-        
-        
+
+
     },
-    onConfirmExit: function(buttonIndex) {
+    onConfirmExit: function (buttonIndex) {
         if (buttonIndex === 1) {
 
             navigator.app.exitApp();
@@ -540,7 +549,7 @@ var app = {
         }
     }
     ,
-    onResumedApp : function() {
+    onResumedApp: function () {
         toast("Salida De Pausa de APP");
     }
 
