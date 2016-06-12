@@ -36,8 +36,8 @@
         <div data-role="page" id="main">
 
             <div data-role="header" class="ui-header-fixed  ui-shadow">
-                <a href="#" id="btnAbout"  class="ui-btn ui-btn-right ui-btn-icon-right ui-icon-info ui-shadow-icon"></a> 
-                <a href="#" id="btnCerrar"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-power ui-shadow-icon"></a> 
+                <a href="#" id="btnAbout"  class="ui-btn ui-btn-right ui-btn-icon-right ui-icon-info ui-shadow-icon ui-corner-all ui-btn-icon-notext"></a> 
+                <a href="#" id="btnCerrar"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-power ui-shadow-icon ui-corner-all ui-btn-icon-notext"></a> 
                 
                 <h1 >Visor Consumo</h1>
             </div><!-- /header -->
@@ -55,10 +55,12 @@
 
                     <p class="disp_valor" id="Tension">000.0</p>
                     <p class="magnitud">V.</p> 
-                    <p class="disp_valor" id="Temperatura">00.0 </p>
+                    <p class="disp_valor" id="Temperatura">00</p>
                     <p class="magnitud">ºC</p> 
-                    <p class="disp_valor" id="Corriente">00.0 </p> 
-                    <p class="magnitud">A</p> 
+                    
+                    <p class="disp_valor"  id="Corriente">00.0 </p> 
+                    <p class="magnitud" >A.</p> 
+                    
                     <p id="conectado" class="blink"></p>
 
                 </div>
