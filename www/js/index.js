@@ -216,12 +216,12 @@ var app = {
 
                     console.log("Tension Brut:" + data);
 
-                    if (!data.indexOf(1) === '0') {
+                    if (!data.indexOf(1) === "0") {
                         app.tension = data.substring(1, 4);
                         app.showGaugeVolt(app.tension);
                         $("#Tension").html(app.tension);
                     } else
-                        $("#Tension").html("000.0");
+                        $("#Tension").html("000");
 
 
 
