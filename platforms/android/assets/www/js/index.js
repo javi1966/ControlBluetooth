@@ -216,7 +216,7 @@ var app = {
 
                     console.log("Tension Brut:" + data);
 
-                    if (!data.indexOf(1) === "0") {
+                    if (data.indexOf(1) !== "0") {
                         app.tension = data.substring(1, 4);
                         app.showGaugeVolt(app.tension);
                         $("#Tension").html(app.tension);
@@ -244,7 +244,7 @@ var app = {
 
                 bluetoothSerial.read(function (dato) {
                     console.log("Corr " + dato);
-                    if (!dato.indexOf(1) === '-') {
+                    if (dato.indexOf(1) !== '-') {
                         app.corriente = dato.substring(1, 4);
                         app.showGaugeAmp(app.corriente);
                         $("#Corriente").html(app.corriente);
@@ -489,7 +489,7 @@ var app = {
                     
                     app.temperatura = data.substring(1, 3);
 
-                    if ( isNaN(app.temperatura)) {
+                    if ( app.temperatura) {
                         app.showGaugeTemp(app.temperatura);
                         $("#Temperatura").html(app.temperatura);
                     } else
