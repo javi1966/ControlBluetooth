@@ -36,16 +36,17 @@ var app = {
         minValue: 0,
         maxValue: 240,
         valueFormat: {int: 3, dec: 0},
-        majorTicks: ['0', '20', '40', '60', '80', '100', '120', '140', '160', '180', '200', '220', '240'],
+        majorTicks: ['0', '20', '40', '60', '80', '100', '120', '140', '160', '180', '200', '220', '240','260'],
         minorTicks: 2,
         strokeTicks: false,
         highlights: [
-            {from: 0, to: 50, color: 'rgba(0,   255, 0, .15)'},
-            {from: 50, to: 100, color: 'rgba(255, 255, 0, .15)'},
-            {from: 100, to: 150, color: 'rgba(255, 30,  0, .25)'},
-            {from: 150, to: 200, color: 'rgba(255, 0,  225, .25)'},
-            {from: 200, to: 220, color: 'rgba(0, 0,  255, .25)'},
-            {from: 220, to: 240, color: 'rgba(0, 0,  255, .25)'}
+            {from: 0, to: 50, color: 'rgba(0, 0,  255, .25)'},
+            {from: 50, to: 100, color: 'rgba(0, 0,  255, .25)'},
+            {from: 100, to: 150, color: 'rgba(0, 0,  255, .25)'},
+            {from: 150, to: 200, color: 'rgba(0, 0,  255, .25)'},
+            {from: 200, to: 220, color: 'rgba(0, 255,  0, .25)'},
+            {from: 220, to: 240, color: 'rgba(0, 255,  0, .25)'},
+            {from: 240, to: 260, color: 'rgba(255, 0,  0, .25)'}
         ],
         colors: {
             plate: '#222',
@@ -66,17 +67,17 @@ var app = {
         title: false,
         minValue: 0,
         maxValue: 20,
-        valueFormat: {int: 2, dec: 2},
-        majorTicks: ['0', '2', '4', '8', '12', '16', '20'],
+        valueFormat: {int: 2, dec:1},
+        majorTicks: ['0.','4.0', '8.0', '12.0', '16.0', '20.0'],
         minorTicks: 2,
         strokeTicks: false,
         highlights: [
-            {from: 0, to: 2, color: 'rgba(0,   255, 0, .15)'},
-            {from: 2, to: 4, color: 'rgba(255, 255, 0, .15)'},
-            {from: 4, to: 8, color: 'rgba(255, 30,  0, .25)'},
-            {from: 8, to: 12, color: 'rgba(255, 0,  225, .25)'},
-            {from: 12, to: 16, color: 'rgba(0, 0,  255, .25)'},
-            {from: 16, to: 20, color: 'rgba(0, 0,  255, .25)'}
+            {from: 0, to: 4, color: 'rgba(0, 255, 0, .15)'},
+            {from: 4, to: 8, color: 'rgba(0, 255, 0, .15)'},
+            {from: 8, to: 12, color: ' rgba(180, 131, 3, 0.9)'},
+            {from: 12, to: 16, color: 'rgba(255, 255, 0, 0.9)'},
+            {from: 16, to: 20, color: 'rgba(255, 0,  0, .25)'}
+            
         ],
         colors: {
             plate: '#222',
@@ -102,13 +103,14 @@ var app = {
         minorTicks: 2,
         strokeTicks: false,
         highlights: [
-            {from: 0, to: 5, color: 'rgba(0,   255, 0, .15)'},
-            {from: 5, to: 10, color: 'rgba(255, 255, 0, .15)'},
-            {from: 10, to: 15, color: 'rgba(255, 30,  0, .25)'},
-            {from: 15, to: 20, color: 'rgba(255, 30,  0, .25)'},
-            {from: 20, to: 25, color: 'rgba(255, 30,  0, .25)'},
+            {from: 0, to: 5, color: 'rgba(0,0,255, .15)'},
+            {from: 5, to: 10, color: 'rgba(0,0, 255, .15)'},
+            {from: 10, to: 15, color: 'rgba(255, 255, 0, .15)'},
+            {from: 15, to: 20, color: 'rgba(255, 255, 0, .15)'},
+            {from: 20, to: 25, color: 'rgba(0,   255, 0, .15)'},
             {from: 25, to: 30, color: 'rgba(0,   255, 0, .15)'},
-            {from: 30, to: 35, color: 'rgba(255, 255, 0, .15)'},
+            {from: 30, to: 35, color: 'rgba(180, 131, 3, 0.9)'},
+            {from: 35, to: 40, color: 'rgba(180, 131, 3, 0.9)'},
             {from: 40, to: 45, color: 'rgba(255, 30,  0, .25)'},
             {from: 45, to: 50, color: 'rgba(255, 30,  0, .25)'}
 
@@ -339,7 +341,7 @@ var app = {
         $("#divConectar").show('slow');
         $("#divDatos").hide('slow');
         toast("Desconectado...");
-
+        $("#conectado").hide(); 
         //app.setStatus("Desconectando.");
     },
     timeoutId: 0,
