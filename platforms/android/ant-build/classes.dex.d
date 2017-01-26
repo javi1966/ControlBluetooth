@@ -35,4 +35,5 @@ C:\workspace\ControlBluetooth\platforms\android\ant-build\classes\org\apache\cor
 C:\workspace\ControlBluetooth\platforms\android\ant-build\classes\org\apache\cordova\dialogs\Notification.class \
 C:\workspace\ControlBluetooth\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager$1.class \
 C:\workspace\ControlBluetooth\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager.class \
+C:\workspace\ControlBluetooth\platforms\android\ant-build\classes\org\apache\cordova\vibration\Vibration.class \
 C:\workspace\ControlBluetooth\platforms\android\ant-build\dexedLibs\classes-0242098f2f411ebe4c8b3d946c74ba78.jar \

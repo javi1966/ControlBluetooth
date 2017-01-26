@@ -3,9 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/workspace/ControlBluetooth/www/css/index.css</file>
+            <file>file:/C:/workspace/ControlBluetooth/nbproject/build.xml</file>
             <file>file:/C:/workspace/ControlBluetooth/www/index.html</file>
+            <file>file:/C:/workspace/ControlBluetooth/www/css/index.css</file>
+            <file>file:/C:/workspace/ControlBluetooth/nbproject/configs/android.properties</file>
+            <file>file:/C:/workspace/ControlBluetooth/plugins/android.json</file>
+            <file>file:/C:/workspace/ControlBluetooth/nbproject/configs/android_1.properties</file>
+            <file>file:/C:/workspace/ControlBluetooth/config.xml</file>
+            <file>file:/C:/workspace/ControlBluetooth/nbproject/plugins.properties</file>
+            <file>file:/C:/workspace/ControlBluetooth/platforms/android/local.properties</file>
+            <file>file:/C:/workspace/ControlBluetooth/platforms/android/CordovaLib/local.properties</file>
+            <file>file:/C:/workspace/ControlBluetooth/platforms/android/project.properties</file>
+            <file>file:/C:/workspace/ControlBluetooth/hooks/README.md</file>
             <file>file:/C:/workspace/ControlBluetooth/www/js/index.js</file>
+            <file>file:/C:/workspace/ControlBluetooth/platforms/android/platform_www/cordova.js</file>
+            <file>file:/C:/workspace/ControlBluetooth/platforms/android/AndroidManifest.xml</file>
+            <file>file:/C:/workspace/ControlBluetooth/nbproject/private/private.xml</file>
         </group>
     </open-files>
 </project-private>

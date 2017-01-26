@@ -1,5 +1,7 @@
 
 
+/* global bluetoothSerial */
+
 var toast = function (msg) {
     $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>" + msg + "</h3></div>")
             .css({display: "block",
@@ -531,6 +533,8 @@ var app = {
     }
     ,
     Cerrar: function () {
+        
+        console.log("Cerrar");
 
         navigator.notification.confirm(
                 'Quieres salir de la APP?',
@@ -539,7 +543,7 @@ var app = {
                 ['OK', 'Cancel']
                 );
 
-        console.log("Cerrar");
+        
 
 
     },
