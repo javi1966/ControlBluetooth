@@ -30,8 +30,7 @@ var toast = function (msg) {
 var app = {
     gaugeVolt: new Gauge({
         renderTo: 'gaugeVolt',
-        // width: 250,
-        // height: 250,
+       
         glow: true,
         units: 'Voltios',
         title: false,
@@ -149,16 +148,17 @@ var app = {
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         $(document).on('pageshow', '#main', this.onPageShow);
+        btnAbout.onclick = app.about;
+        btnCerrar.ontouchstart = app.Cerrar;
         deviceList.ontouchstart = app.connect;
         descButton.ontouchstart = app.disconnect;
         sendTension.ontouchstart = app.mideTension;
         sendCorriente.ontouchstart = app.mideCorriente;
-        recvBufTension.ontouchstart = app.recibeBufTension;
-        recvBufCorriente.ontouchstart = app.recibeBufCorr;
+        /*recvBufTension.ontouchstart = app.recibeBufTension;
+        recvBufCorriente.ontouchstart = app.recibeBufCorr;*/
         sendVA.change = app.recibeVA;
         recvTemperatura.ontouchstart = app.recibeTemperatura;
-        btnAbout.onclick = app.about;
-        btnCerrar.ontouchstart = app.Cerrar;
+        
         console.log("log:bindEvents");
     },
     onPageShow: function () {
@@ -204,7 +204,7 @@ var app = {
         toast("Iniciando...");
         // app.receivedEvent('deviceready');
         refreshButton.ontouchstart = app.list;
-        $(document).bind("resume", app.onResumedApp);
+        //$(document).bind("resume", app.onResumedApp);
         console.log("onDeviceReady");
     },
     mideTension: function () {
@@ -526,7 +526,7 @@ var app = {
         app.mideTemperatura();
     },
     about: function () {
-        // $("#popupAbout").show();
+         //$("#popupAbout").show();
         $('#popupAbout').popup('open');
         console.log("about");
         // $("#pRes").html("Resol. "+app.deviceHeight / window.devicePixelRatio + "x" + app.deviceWidth / window.devicePixelRatio);
@@ -540,7 +540,7 @@ var app = {
                 'Quieres salir de la APP?',
                 app.onConfirmExit,
                 'Confirma Salida',
-                ['OK', 'Cancel']
+                ['Aceptar', 'Cancelar']
                 );
 
         

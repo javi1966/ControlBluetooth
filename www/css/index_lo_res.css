@@ -31,29 +31,31 @@ and open the template in the editor.
 .ui-header-fixed {
 
     color:whitesmoke !important;
-    font-family: cursive !important;
-    letter-spacing: 3px !important; 
+    font-family: "Times New Roman", Times, serif !important;
+    letter-spacing: 1px !important; 
    /* background: linear-gradient(blue,lightblue) !important;
     background: -webkit-linear-gradient(blue,lightblue) !important;*/
     background-color:black !important;
     -webkit-text-shadow: 0px 0px 15px white !important;
     text-shadow:-0px 0px 9px white !important;
-    font-size :0.9em !important;
+    font-size :1em !important;
     border-top-color:orange !important; 
-    border-top-width: 2px !important;
+    border-top-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
     border-bottom-color:orange !important; 
-    border-bottom-width: 2px !important;
+    border-bottom-width: 0px !important;
     box-shadow: inset 0px 0px 25px 5px orange!important;
     border-top: 0em;
-    
+   
 }
 
 
 .ui-header-fixed a{
     background-color: black !important;  
     border:0 !important;
-     
-    margin:0px;
+    margin-top:4px !important;
+    margin-left:3px !important;
 }
 
 
@@ -85,19 +87,19 @@ and open the template in the editor.
 }
 
 #gaugeVolt {
-    width:123px;
-    height:123px;
+    width:145px;
+    height:145px;
     float:left;
 }
 
 #gaugeAmp {
-    width:123px;
-    height:123px;
+    width:145px;
+    height:145px;
     float:next;
 }
 #gaugeTemp{
-    width:123px;
-    height:123px;
+    width:145px;
+    height:145px;
     float:next;
   
 }
@@ -109,7 +111,7 @@ and open the template in the editor.
     text-align :center;
     font-weight:bold;
     color:#99ff33;
-    font-size: 1.7em;
+    font-size: 1.6em;
     margin: 0;
     -webkit-text-shadow: 0px 0px 25px white !important;
     text-shadow:0px 0px 25px white !important;
@@ -167,7 +169,7 @@ and open the template in the editor.
     box-shadow: 1px 1px 5px 0px rgba(102,102,102,0.65) !important;
     background:linear-gradient( #5f9cc5,#396b9e )  !important;
     background:-webkit-linear-gradient( #5f9cc5,#396b9e )  !important;
-    font-size: 1em !important;
+    font-size:1em !important;
     margin: 0px !important;
 }
 

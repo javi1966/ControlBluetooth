@@ -35,11 +35,13 @@
 
         <div data-role="page" id="main">
 
-            <div data-role="header" class="ui-header-fixed  ui-shadow">
+            <div data-role="header" class="ui-header-fixed ui-corner-all ui-shadow">
                 <a href="#" id="btnAbout"  class="ui-btn ui-btn-right ui-btn-icon-right ui-icon-info ui-shadow-icon ui-corner-all ui-btn-icon-notext"></a> 
+                
                 <a href="#" id="btnCerrar"  class="ui-btn ui-btn-left ui-btn-icon-left ui-icon-power ui-shadow-icon ui-corner-all ui-btn-icon-notext"></a> 
                 
-                <h1 >Visor Consumo</h1>
+                <h1>Visor Consumo</h1>
+                
             </div><!-- /header -->
 
             <div role ="main" class="ui-content">
@@ -51,7 +53,8 @@
                     <canvas id="gaugeAmp"></canvas> 
                      
                    
-                    <br/><br/>
+                    <br/>
+                    
 
                     <p class="disp_valor" id="Tension">000</p>
                     <p class="magnitud">V.</p> 
@@ -93,11 +96,12 @@
                             
                               <button id="sendTension" class="ui-btn ui-corner-all ui-body-b ui-btn-inline">Tension</button> 
                               <button id="sendCorriente" class="ui-btn ui-corner-all ui-btn-inline">Corriente</button>
-                                                                                
+                              <!--                                                  
                               <button id="recvBufTension" class="ui-btn ui-corner-all  ui-btn-inline">B.Tension</button>
                               <button id="recvBufCorriente" class="ui-btn ui-corner-all  ui-btn-inline">B.Corriente</button>
+                              -->
                             
-                            <button id="recvTemperatura" class="ui-btn ui-corner-all">Temperatura</button>
+                              <button id="recvTemperatura" class="ui-btn ui-corner-all">Temperatura</button>
                         </div>
                     </div>
 

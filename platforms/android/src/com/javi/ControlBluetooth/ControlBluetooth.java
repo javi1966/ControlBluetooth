@@ -17,21 +17,67 @@
        under the License.
  */
 
-package com.coolappz.ControlBluetooth;
+package com.javi.ControlBluetooth;
 
+import android.bluetooth.BluetoothAdapter;
+import android.widget.Toast;
+import android.content.Intent;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
+
 public class ControlBluetooth extends CordovaActivity 
+        
 {
+    
+    private final static int REQUEST_ENABLE_BT = 1;
+    BluetoothAdapter mBluetoothAdapter=null;
+    
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         super.init();
+        
+        
+        
+        
+        
+        
+        
+         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBluetoothAdapter == null) {
+            Toast.makeText(getActivity(), "Status: Bluetooth no soportado en este dispositivo",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        if (!mBluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
+        
+        
+        
+        
+        
+        
+        
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html");
+    }
+    
+    
+    @Override
+    public void onDestroy() {
+        
+        super.onDestroy();
+        
+        
+        
+        mBluetoothAdapter.disable();
+        
+
     }
 }
 
