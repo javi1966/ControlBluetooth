@@ -35,19 +35,17 @@ var app = {
         units: 'Voltios',
         title: false,
         minValue: 0,
-        maxValue: 240,
+        maxValue: 280,
         valueFormat: {int: 3, dec: 0},
-        majorTicks: ['0', '20', '40', '60', '80', '100', '120', '140', '160', '180', '200', '220', '240','260'],
+        majorTicks: ['0', '35', '70', '105', '140', '175','210','245','280'],
         minorTicks: 2,
         strokeTicks: false,
         highlights: [
-            {from: 0, to: 50, color: 'rgba(0, 0,  255, .25)'},
-            {from: 50, to: 100, color: 'rgba(0, 0,  255, .25)'},
-            {from: 100, to: 150, color: 'rgba(0, 0,  255, .25)'},
-            {from: 150, to: 200, color: 'rgba(0, 0,  255, .25)'},
-            {from: 200, to: 220, color: 'rgba(0, 255,  0, .25)'},
-            {from: 220, to: 240, color: 'rgba(0, 255,  0, .25)'},
-            {from: 240, to: 260, color: 'rgba(255, 0,  0, .25)'}
+            {from: 0, to: 210, color: 'rgba(0, 0,  255, .25)'},
+            {from: 210, to: 240, color: 'rgba(0, 255,  0, .25)'},
+            {from: 241, to: 280, color: 'rgba(255, 0,  0, .25)'}
+            
+           
         ],
         colors: {
             plate: '#222',
